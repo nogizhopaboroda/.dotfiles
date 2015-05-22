@@ -1,0 +1,9 @@
+"" my plugins for vim
+"" placeholder: 
+"" NeoBundle ''
+
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'myusuf3/numbers.vim'
