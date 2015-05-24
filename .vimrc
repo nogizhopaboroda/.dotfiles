@@ -50,5 +50,8 @@ augroup VimCSS3Syntax
 	 autocmd FileType css setlocal iskeyword+=-
 augroup END
 
+
 "" colourizer
-autocmd VimEnter * ColorHighlight
+if version >= 704
+	autocmd FileType css ColorHighlight
+endif
