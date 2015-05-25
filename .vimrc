@@ -54,4 +54,5 @@ augroup END
 "" colourizer
 if version >= 704
 	autocmd FileType css ColorHighlight
+	autocmd FileType scss ColorHighlight
 endif
