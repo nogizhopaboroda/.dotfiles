@@ -1,3 +1,5 @@
+[core]
+        excludesfile = ~/.dotfiles/.gitignore_global
 [alias]
         co = checkout
         ci = commit
