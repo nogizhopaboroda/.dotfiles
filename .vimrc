@@ -4,6 +4,10 @@ endif
 
 set autochdir
 
+"" indentation
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 "" NERDTree settings
 autocmd StdinReadPre * let s:std_in=1
