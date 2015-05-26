@@ -55,7 +55,7 @@ augroup VimCSS3Syntax
 augroup END
 
 
-"" colourizer
+"" colorizer
 if version >= 704
 	autocmd FileType css ColorHighlight
 	autocmd FileType scss ColorHighlight
@@ -64,3 +64,5 @@ endif
 "" commenter
 filetype plugin on
 
+"" powerline
+set laststatus=2   " Always show the statusline
