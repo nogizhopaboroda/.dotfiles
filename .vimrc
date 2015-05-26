@@ -67,3 +67,7 @@ filetype plugin on
 
 "" powerline
 set laststatus=2   " Always show the statusline
+
+"" ack
+let g:ack_default_options =
+              \ " --context 3"
