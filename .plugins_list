@@ -6,7 +6,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'myusuf3/numbers.vim'
+NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
 NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'luochen1990/rainbow'
