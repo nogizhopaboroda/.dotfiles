@@ -60,6 +60,7 @@ augroup END
 if version >= 704
 	autocmd FileType css ColorHighlight
 	autocmd FileType scss ColorHighlight
+	autocmd FileType html ColorHighlight
 endif
 
 "" commenter

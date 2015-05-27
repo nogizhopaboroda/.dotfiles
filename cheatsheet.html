@@ -1,0 +1,244 @@
+<html>
+  <head>
+    <style>
+      .column {
+        display: block;
+        float: left;
+        width: 33%;
+      } 
+      .column:not(:last-child) {
+        border-right: 1px solid;
+      }
+      .column-title {
+        text-align: center;
+        padding: 10px 0;
+      }
+      #normal-mode {
+        background: rgb(173,209,42); 
+      }
+      #insert-mode {
+        background: rgb(19,132,168); 
+      }
+      #visual-mode {
+        background: rgb(248,132,145); 
+      }
+      .column-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      } 
+      .column-list-item {
+        border-bottom: 1px solid gray;
+        padding: 5px 0;
+      }
+      .column-subtitle {
+        padding: 5px 0;
+        background: red;
+        text-align: center;
+        color: white;
+      }
+
+      /* hotkeys */
+      .key {
+        display: inline-block;
+        width: 55px;
+        font-weight: 600; 
+        text-align: center;
+      }
+      .key:after {
+        content: '-';
+        margin-left: 10px;
+      }
+      .description {
+      
+      } 
+
+      /* cursor styles */
+      .cursor-wrapper {
+        height: 50px;
+        margin: 10px 0 15px;
+      }
+      .cursor-wrapper.key {
+        width: 50px;
+      }
+      .cursor-wrapper.key:after {
+        display: none;
+      }
+      span.cursor-up, span.cursor-down {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+      }
+      span.cursor-up {
+        margin-bottom: 5px;
+      }
+      span.cursor-down {
+        margin-top: 5px; 
+      }
+      span.cursor-right, span.cursor-left {
+        float: left;
+        width: 50%;
+      }
+      span.cursor-left {
+        text-align: left;
+      }
+      span.cursor-right {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="column">
+      <div id="normal-mode" class="column-title">NORMAL</div>
+      <ul class="column-list">
+        <li class="column-list-item column-subtitle">
+          Cursor movement
+        </li>
+        <li class="column-list-item">
+          <div class="cursor-wrapper key">
+            <span class="cursor-up">k</span>
+            <span class="cursor-left">h</span>
+            <span class="cursor-right">l</span>
+            <span class="cursor-down">j</span>
+          </div>
+          <span class="description">cursor movement</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">6j</span>
+          <span class="description">moves down 6 lines</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">w</span>
+          <span class="description">jump forwards to the start of a word</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">W</span>
+          <span class="description">jump forwards to the start of a word (words can contain punctuation)</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">e</span>
+          <span class="description">jump forwards to the end of a word</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">E</span>
+          <span class="description">jump forwards to the end of a word (words can contain punctuation)</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">b</span>
+          <span class="description">jump backwards to the start of a word</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">B</span>
+          <span class="description">jump backwards to the start of a word (words can contain punctuation)</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">0</span>
+          <span class="description">jump to the start of the line</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">^</span>
+          <span class="description">jump to the first non-blank character of the line</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">$</span>
+          <span class="description">jump to the end of the line</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">G</span>
+          <span class="description">go to the last line of the document</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">5G/gg</span>
+          <span class="description">go to line 5</span>
+        </li>
+      </ul>
+    </div>
+    <div class="column">
+      <div id="insert-mode" class="column-title">Insert</div>
+      <ul class="column-list">
+        <li class="column-list-item column-subtitle">
+           inserting/appending text 
+        </li>
+        <li class="column-list-item">
+          <span class="key">i</span>
+          <span class="description">insert before the cursor</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">I</span>
+          <span class="description">insert at the beginning of the line</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">a</span>
+          <span class="description">insert (append) after the cursor</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">o</span>
+          <span class="description">append (open) a new line below the current line</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">O</span>
+          <span class="description">append (open) a new line above the current line</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">ea</span>
+          <span class="description">insert (append) at the end of the word</span>
+        </li>
+        <li class="column-list-item column-subtitle">
+           Editing (move to NORMAL MODE) 
+        </li>
+        <li class="column-list-item">
+          <span class="key">r</span>
+          <span class="description">replace a single character</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">J</span>
+          <span class="description">join line below to the current one</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">cc</span>
+          <span class="description">change (replace) entire line</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">cw</span>
+          <span class="description">change (replace) to the end of the word</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">c$</span>
+          <span class="description">change (replace) to the end of the line</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">s</span>
+          <span class="description">delete character and substitute text</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">S</span>
+          <span class="description">delete line and substitute text (same as cc)</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">xp</span>
+          <span class="description">transpose two letters (delete and paste)</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">u</span>
+          <span class="description">undo</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">&lt;c-r&gt;</span>
+          <span class="description">redo</span>
+        </li>
+        <li class="column-list-item">
+          <span class="key">.</span>
+          <span class="description">repeat last command</span>
+        </li>
+    </div>
+    <div class="column"></div>
+      <div id="visual-mode" class="column-title">Other</div>
+  </body>
+</html>
+
+<!--
+<li class="column-list-item">
+  <span class="key"> </span>
+  <span class="description"></span>
+</li>
+-->
