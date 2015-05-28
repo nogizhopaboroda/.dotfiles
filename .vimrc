@@ -11,6 +11,8 @@ set softtabstop=2
 
 "" search highlighting
 set hls
+  "" unhighlight
+map <silent> <C-Bslash> :noh<CR>
 
 "" NERDTree settings
 autocmd StdinReadPre * let s:std_in=1
