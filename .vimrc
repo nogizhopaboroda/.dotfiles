@@ -81,3 +81,6 @@ let g:ack_default_options =
 "" numbers
 set relativenumber 
 set number
+
+"" repeat.vim
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
