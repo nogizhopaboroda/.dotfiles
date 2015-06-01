@@ -87,3 +87,9 @@ set number
 
 "" repeat.vim
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+
+"" github markdown preview
+augroup markdown
+      au!
+      au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
