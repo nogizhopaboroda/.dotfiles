@@ -9,6 +9,9 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+"" set case insensitive search as default
+set ic
+
 "" search highlighting
 set hls
   "" unhighlight
