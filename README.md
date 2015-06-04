@@ -2,6 +2,16 @@
 my dotfiles
 
 
+How to import `.zshrc`
+--------------------------
+
+Add to your `~/.zshrc`:
+```
+if [ -f ~/.dotfiles/.zshrc ]; then
+  source ~/.dotfiles/.zshrc
+fi
+```
+
 How to import `.gitconfig`
 --------------------------
 
