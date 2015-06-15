@@ -17,6 +17,20 @@ set hls
   "" unhighlight
 map <silent> <C-Bslash> :noh<CR>
 
+"" my commands
+function CopyAndPrintPath( format )
+  let path = expand(a:format)
+  call system('pbcopy', path)
+  echo path
+  echo 'Copied to clipboard'
+  return path
+endfunction
+
+cnoreabbrev fp call CopyAndPrintPath('%:p')
+cnoreabbrev fn call CopyAndPrintPath('%:t')
+
+
+
 "" NERDTree settings
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
