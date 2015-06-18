@@ -17,6 +17,8 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+set cursorline "" highlight current line
+
 "" set case insensitive search as default
 set ic
 
