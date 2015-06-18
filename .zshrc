@@ -1,6 +1,6 @@
 #functions
 
-function git_get_current_branch () {
+function pbr () { #prints current git branch
   br=`git branch | grep "*"`
   echo ${br/* /}
 }
@@ -8,4 +8,4 @@ function git_get_current_branch () {
 
 #aliases
 
-alias cbr="git_get_current_branch | pbcopy; echo 'branch name copied'"
+alias cbr="pbr | pbcopy; echo 'branch name copied'"
