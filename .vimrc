@@ -39,8 +39,15 @@ endfunction
 cnoreabbrev fp call CopyAndPrintPath('%:p')
 cnoreabbrev fn call CopyAndPrintPath('%:t')
 
+"" my keymappings
+nmap <silent> <D-A-Up> :wincmd k<CR>
+nmap <silent> <D-A-Down> :wincmd j<CR>
+nmap <silent> <D-A-Left> :wincmd h<CR>
+nmap <silent> <D-A-Right> :wincmd l<CR>
+
 
 "" PLUGINS SETTINGS
+"" ----------------
 
 "" NERDTree
 autocmd StdinReadPre * let s:std_in=1
