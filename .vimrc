@@ -115,3 +115,10 @@ augroup markdown
       au!
       au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+
+"" surround custom mappings
+let g:surround_custom_mapping = {}
+let g:surround_custom_mapping.javascript = {
+    \ 'f':  "function(){ \r }"
+    \ }
