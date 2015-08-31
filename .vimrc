@@ -17,6 +17,9 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+"" font
+set guifont=Hack:h11
+
 set cursorline "" highlight current line
 
 "" set case insensitive search as default
