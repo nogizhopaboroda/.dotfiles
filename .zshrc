@@ -10,3 +10,4 @@ function pbr () { #prints current git branch
 
 alias cbr="pbr | tr -d '\n' | pbcopy; echo 'branch name copied'"
 alias pick-commit="git log --pretty=format:'%H %s' | pick | grep -o '^\S*' | tr -d '\n'"
+alias pick-branch="git branch | pick"
