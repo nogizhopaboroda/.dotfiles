@@ -5,6 +5,13 @@ function pbr () { #prints current git branch
   echo ${br/* /}
 }
 
+function each() {
+  while read line; do
+    for f in "$@"; do
+      $f $line
+    done
+  done
+}
 
 #aliases
 
