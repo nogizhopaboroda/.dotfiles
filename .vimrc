@@ -9,6 +9,8 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+au FileType html setl sw=4 sts=4 et
+
 set noswapfile
 
 "" colors
@@ -103,8 +105,9 @@ filetype plugin on
 set laststatus=2   " Always show the statusline
 
 "" ack
+let g:ackprg = 'pt --column'
 let g:ack_default_options =
-              \ " --context 3"
+              \ " --context=2"
 
 "" numbers
 set relativenumber 
