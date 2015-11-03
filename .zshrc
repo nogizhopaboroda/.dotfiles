@@ -17,4 +17,4 @@ function each() {
 
 alias cbr="pbr | tr -d '\n' | pbcopy; echo 'branch name copied'"
 alias pick-commit="git log --pretty=format:'%H %s' | pick | grep -o '^\S*' | tr -d '\n'"
-alias pick-branch="git branch | pick"
+alias pick-branch="git branch | pick | tr -d ' '"
