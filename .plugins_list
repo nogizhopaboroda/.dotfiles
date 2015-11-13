@@ -4,7 +4,6 @@
 
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
 NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
@@ -16,9 +15,19 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 't9md/vim-surround_custom_mapping'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'jtratner/vim-flavored-markdown'
-NeoBundle 't9md/vim-surround_custom_mapping'
 NeoBundle 'nginx.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
+NeoBundle 'Shougo/unite.vim'

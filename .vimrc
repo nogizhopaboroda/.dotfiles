@@ -126,5 +126,27 @@ augroup END
 "" surround custom mappings
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping.javascript = {
-    \ 'f':  "function(){ \r }"
+    \ 'f':  "function(){ \r }",
+    \ 't':  "try { \r } catch(e) {}"
     \ }
+let g:surround_custom_mapping.scss = {
+    \ '.':  ". { \r }",
+    \ '#':  "# { \r }"
+    \ }
+let g:surround_custom_mapping.css = {
+    \ '.':  ". { \r }",
+    \ '#':  "# { \r }"
+    \ }
+
+
+"" unite settings
+if executable('pt')
+  let g:unite_source_rec_async_command = 'pt --nocolor --nogroup -g .'
+  let g:unite_source_grep_command = 'pt --context=2'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_encoding = 'utf-8'
+endif
+
+nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <space>/ :Unite grep:.<cr>
