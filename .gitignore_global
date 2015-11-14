@@ -1,5 +1,6 @@
 *.swp
 
 .idea
+.vagrant
 .DS_Store
 /node_modules
