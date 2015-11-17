@@ -1,3 +1,8 @@
+"" commands
+"" :Gitv - opens gitv plugin
+"" :Git <command> - shows git command results in new split pane
+
+
 if filereadable(glob("~/.dotfiles/.neobundle"))
    source ~/.dotfiles/.neobundle
 endif
