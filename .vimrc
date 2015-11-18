@@ -132,7 +132,8 @@ augroup END
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping.javascript = {
     \ 'f':  "function(){ \r }",
-    \ 't':  "try { \r } catch(e) {}"
+    \ 't':  "try { \r } catch(e) {}",
+    \ 'i':  "if(){ \r }"
     \ }
 let g:surround_custom_mapping.scss = {
     \ '.':  ". { \r }",
