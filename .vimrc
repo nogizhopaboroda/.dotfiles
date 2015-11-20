@@ -2,6 +2,7 @@
 "" :Gitv - opens gitv plugin
 "" :Git <command> - shows git command results in new split pane
 
+let cwd = getcwd()
 
 if filereadable(glob("~/.dotfiles/.neobundle"))
    source ~/.dotfiles/.neobundle
@@ -49,6 +50,8 @@ endfunction
 cnoreabbrev fp call CopyAndPrintPath('%:p')
 cnoreabbrev fn call CopyAndPrintPath('%:t')
 
+cnoreabbrev pcd :execute 'cd ' . cwd
+
 "" my keymappings
 nmap <silent> <D-A-Up> :wincmd k<CR>
 nmap <silent> <D-A-Down> :wincmd j<CR>
@@ -66,7 +69,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1 ""show hidden files
 
 "" fuzzy search
-set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip,*/.sass-cache/*
 
 "" rainbow brackets
 let g:rainbow_conf = {
@@ -147,15 +150,17 @@ let g:surround_custom_mapping.css = {
 
 "" unite settings
 if executable('pt')
-  let g:unite_source_rec_async_command = 'pt --nocolor --nogroup -g .'
+  let g:unite_source_rec_async_command = 'pt --nocolor --nogroup -g'
   let g:unite_source_grep_command = 'pt'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --smart-case'
   let g:unite_source_grep_recursive_opt = ''
   let g:unite_source_grep_encoding = 'utf-8'
 endif
 
-nnoremap <C-p> :Unite file_rec/async<cr>
-nnoremap <space>/ :Unite grep:.<cr>
+"" nnoremap <C-k> :Unite file_rec/async<cr>
+nnoremap <C-p> :execute 'Unite -start-insert file_rec/async:' . cwd<cr>
+"" nnoremap <C-k> :Unite grep:.<cr>
+nnoremap <space>/ :execute 'Unite grep:' . cwd<cr>
 
 
 "" macros
