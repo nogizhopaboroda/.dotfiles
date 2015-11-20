@@ -131,6 +131,34 @@ augroup markdown
 augroup END
 
 
+"" unite settings
+  "" Custom ignores
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ 'tmp/',
+      \ '.sass-cache',
+      \ 'node_modules/',
+      \ 'bower_components/',
+      \ 'dist/',
+      \ '.vagrant/',
+      \ '.pyc',
+      \ ], '\|'))
+
+if executable('pt')
+  let g:unite_source_rec_async_command = 'pt --nocolor --nogroup -g'
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --smart-case'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_encoding = 'utf-8'
+endif
+
+" nnoremap <C-k> :Unite file_rec/async<cr>
+nnoremap <C-p> :execute 'Unite -start-insert file_rec/async:' . cwd<cr>
+"" nnoremap <C-k> :Unite grep:.<cr>
+nnoremap <space>/ :execute 'Unite grep:' . cwd<cr>
+
+
 "" surround custom mappings
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping.javascript = {
@@ -146,21 +174,6 @@ let g:surround_custom_mapping.css = {
     \ '.':  ". { \r }",
     \ '#':  "# { \r }"
     \ }
-
-
-"" unite settings
-if executable('pt')
-  let g:unite_source_rec_async_command = 'pt --nocolor --nogroup -g'
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --smart-case'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_encoding = 'utf-8'
-endif
-
-"" nnoremap <C-k> :Unite file_rec/async<cr>
-nnoremap <C-p> :execute 'Unite -start-insert file_rec/async:' . cwd<cr>
-"" nnoremap <C-k> :Unite grep:.<cr>
-nnoremap <space>/ :execute 'Unite grep:' . cwd<cr>
 
 
 "" macros
