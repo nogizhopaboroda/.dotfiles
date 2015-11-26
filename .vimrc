@@ -2,7 +2,7 @@
 "" :Gitv - opens gitv plugin
 "" :Git <command> - shows git command results in new split pane
 
-let cwd = getcwd()
+let g:cwd = getcwd()
 
 if filereadable(glob("~/.dotfiles/.neobundle"))
    source ~/.dotfiles/.neobundle
@@ -39,16 +39,20 @@ set hls
 map <silent> <C-Bslash> :noh<CR>
 
 "" my commands
-function CopyAndPrintPath( format )
+function CopyAndPrintPath( format, relative )
   let path = expand(a:format)
+  if a:relative == "true"
+    let path = substitute(path, g:cwd, "", "")
+  endif
   call system('pbcopy', path)
   echo path
   echo 'Copied to clipboard'
   return path
 endfunction
 
-cnoreabbrev fp call CopyAndPrintPath('%:p')
-cnoreabbrev fn call CopyAndPrintPath('%:t')
+cnoreabbrev fp call CopyAndPrintPath('%:p', "true")
+cnoreabbrev fa call CopyAndPrintPath('%:p', "false")
+cnoreabbrev fn call CopyAndPrintPath('%:t', "false")
 
 cnoreabbrev pcd :execute 'cd ' . cwd
 
