@@ -104,12 +104,6 @@ augroup VimCSS3Syntax
 	 autocmd FileType css setlocal iskeyword+=-
 augroup END
 
-
-"" colorizer
-if version >= 704
-	autocmd FileType css,scss,sass,html ColorHighlight
-endif
-
 "" commenter
 filetype plugin on
 
