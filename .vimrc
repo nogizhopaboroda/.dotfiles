@@ -9,15 +9,17 @@ if filereadable(glob("~/.dotfiles/.neobundle"))
 endif
 
 set autochdir
+set noswapfile
+
+"" file types
+au BufNewFile,BufRead .plugins_list set filetype=vim
 
 "" indentation
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-au FileType html setl sw=4 sts=4 et
-
-set noswapfile
+au FileType html,php setl sw=4 sts=4 et
 
 "" colors
 set t_Co=256
