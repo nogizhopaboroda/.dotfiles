@@ -44,7 +44,7 @@ map <silent> <C-Bslash> :noh<CR>
 function CopyAndPrintPath( format, relative )
   let path = expand(a:format)
   if a:relative == "true"
-    let path = substitute(path, g:cwd, "", "")
+    let path = substitute(path, g:cwd . "/", "", "")
   endif
   call system('pbcopy', path)
   echo path
