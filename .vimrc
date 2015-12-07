@@ -52,6 +52,14 @@ function CopyAndPrintPath( format, relative )
   return path
 endfunction
 
+function ToggleVerticalLine()
+  if &cursorcolumn == 0
+    set cursorcolumn
+  else
+    set nocursorcolumn
+  endif
+endfunction
+
 cnoreabbrev fp call CopyAndPrintPath('%:p', "true")
 cnoreabbrev fa call CopyAndPrintPath('%:p', "false")
 cnoreabbrev fn call CopyAndPrintPath('%:t', "false")
@@ -63,6 +71,8 @@ nmap <silent> <D-A-Up> :wincmd k<CR>
 nmap <silent> <D-A-Down> :wincmd j<CR>
 nmap <silent> <D-A-Left> :wincmd h<CR>
 nmap <silent> <D-A-Right> :wincmd l<CR>
+
+nnoremap <leader>v :call ToggleVerticalLine()<cr>
 
 
 "" PLUGINS SETTINGS
