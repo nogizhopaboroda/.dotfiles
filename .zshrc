@@ -1,3 +1,6 @@
+export EDITOR='vim'
+
+
 #functions
 
 function pbr () { #prints current git branch
