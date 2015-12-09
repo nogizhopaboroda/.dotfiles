@@ -22,6 +22,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'jtratner/vim-flavored-markdown'
 NeoBundle 'nginx.vim'
+NeoBundle 'xsbeats/vim-blade'
+NeoBundle 'rpbaltazar/vim-lodash-highlight'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
