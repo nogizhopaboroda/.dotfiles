@@ -13,6 +13,7 @@ set noswapfile
 
 "" file types
 au BufNewFile,BufRead .plugins_list set filetype=vim
+au BufNewFile,BufRead *.tpl.html set filetype=html.underscore_template
 
 "" indentation
 set expandtab
