@@ -198,6 +198,8 @@ let g:surround_custom_mapping.css = {
     \ '#':  "# { \r }"
     \ }
 
+"" MatchTagAlways plugin
+nnoremap <leader>% :MtaJumpToOtherTag<cr>
 
 "" macros
 autocmd Filetype javascript call ApplyJsMacros()
