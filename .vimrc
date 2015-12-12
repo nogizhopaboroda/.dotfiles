@@ -33,8 +33,8 @@ set background=dark
 colorscheme solarized
 
 " Highlight unwanted whitespace
-highlight TrailingWhitespace ctermbg=red guibg=red
-highlight TabWhitespace ctermbg=darkgreen guibg=darkgreen
+highlight TrailingWhitespace ctermbg=red guibg=#FF5252
+highlight TabWhitespace ctermbg=darkgreen guibg=#4CAF50
 highlight DoubleSpaceAfterPeriod ctermbg=red guibg=red
 autocmd Syntax * syn match TrailingWhitespace /\s\+$/
 autocmd Syntax * syn match TabWhitespace /[\t]/
@@ -106,7 +106,7 @@ set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip,*/.sass-cache/*
 
 "" rainbow brackets
 let g:rainbow_conf = {
-    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+    \   'guifgs': ['#CDDC39', '#FF5252', '#FF9800', '#4CAF50', '#E91E63'],
     \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
     \   'operators': '_,_',
     \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
