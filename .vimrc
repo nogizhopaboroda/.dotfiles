@@ -26,6 +26,9 @@ au FileType html,php setl sw=4 sts=4 et
 "" fix backspace problem in cli vim
 set backspace=2
 
+"" enable mouse
+set mouse=a
+
 "" colors
 set t_Co=256
 syntax enable
