@@ -92,7 +92,7 @@ nmap <silent> <D-A-Down> :wincmd j<CR>
 nmap <silent> <D-A-Left> :wincmd h<CR>
 nmap <silent> <D-A-Right> :wincmd l<CR>
 
-nnoremap <leader>v :call ToggleVerticalLine()<cr>
+nmap <silent> <leader>v :call ToggleVerticalLine()<CR>
 
 
 "" PLUGINS SETTINGS
