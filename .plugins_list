@@ -2,6 +2,7 @@
 "" placeholder: 
 "" NeoBundle ''
 
+NeoBundle 'henrik/vim-indexed-search'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
