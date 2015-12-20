@@ -240,6 +240,10 @@ let g:surround_custom_mapping.css = {
 "" MatchTagAlways plugin
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
 
+"" IndexedSearch settings
+let g:indexed_search_shortmess = 1
+let g:indexed_search_numbered_only = 1
+
 "" macros
 autocmd Filetype javascript call ApplyJsMacros()
 function ApplyJsMacros()
