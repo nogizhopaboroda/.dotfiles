@@ -3,6 +3,7 @@
 "" NeoBundle ''
 
 NeoBundle 'henrik/vim-indexed-search'
+NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'

@@ -35,14 +35,6 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-" Highlight unwanted whitespace
-highlight TrailingWhitespace ctermbg=red guibg=#FF5252
-highlight TabWhitespace ctermbg=darkgreen guibg=#4CAF50
-highlight DoubleSpaceAfterPeriod ctermbg=red guibg=red
-autocmd Syntax * syn match TrailingWhitespace /\s\+$/
-autocmd Syntax * syn match TabWhitespace /[\t]/
-autocmd Syntax * syn match DoubleSpaceAfterPeriod /\.  /
-
 "" vertical bar cursor shape in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
