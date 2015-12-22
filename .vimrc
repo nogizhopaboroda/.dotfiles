@@ -63,6 +63,7 @@ endfunction
 
 function CopyAndPrintPath( format, relative )
   let path = GetPath( a:format, a:relative )
+  call system('pbcopy', path)
   echo path
   echo 'Copied to clipboard'
   return path
