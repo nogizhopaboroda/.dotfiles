@@ -97,11 +97,20 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1 ""show hidden files
 
 "" airline
+  "" add red accent
+function! AirlineThemePatch(palette)
+  let a:palette.accents.bold_red = [  '#ff0000' , '' , 160 , '', 'bold'   ]
+endfunction
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+call airline#highlighter#add_accent('bold_red')
+
 let g:airline_powerline_fonts = 1
 let g:airline_theme           = 'powerlineish'
 
 let g:airline#extensions#whitespace#enabled = 0 "disable whitespace plugin
+
 let g:airline_section_y = ''
+let g:airline_section_c='%<%f %#__accent_bold_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 
 let g:airline#extensions#hunks#non_zero_only = 1
 
