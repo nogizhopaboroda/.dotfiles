@@ -103,6 +103,8 @@ let g:airline_theme           = 'powerlineish'
 let g:airline#extensions#whitespace#enabled = 0 "disable whitespace plugin
 let g:airline_section_y = ''
 
+let g:airline#extensions#hunks#non_zero_only = 1
+
 " vim-powerline symbols
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
