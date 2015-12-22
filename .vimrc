@@ -53,12 +53,16 @@ set hls
 map <silent> <C-Bslash> :noh<CR>
 
 "" my commands
-function CopyAndPrintPath( format, relative )
+function GetPath( format, relative )
   let path = expand(a:format)
   if a:relative == "true"
     let path = substitute(path, g:cwd . "/", "", "")
   endif
-  call system('pbcopy', path)
+  return path
+endfunction
+
+function CopyAndPrintPath( format, relative )
+  let path = GetPath( a:format, a:relative )
   echo path
   echo 'Copied to clipboard'
   return path
@@ -100,9 +104,11 @@ let NERDTreeShowHidden=1 ""show hidden files
   "" add red accent
 function! AirlineThemePatch(palette)
   let a:palette.accents.bold_red = [  '#ff0000' , '' , 160 , '', 'bold'   ]
+  let a:palette.accents.gray = [  '#444444' , '' , 59 , '', ''   ]
 endfunction
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 call airline#highlighter#add_accent('bold_red')
+call airline#highlighter#add_accent('gray')
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme           = 'powerlineish'
@@ -110,7 +116,7 @@ let g:airline_theme           = 'powerlineish'
 let g:airline#extensions#whitespace#enabled = 0 "disable whitespace plugin
 
 let g:airline_section_y = ''
-let g:airline_section_c='%<%f %#__accent_bold_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+let g:airline_section_c='%< %#__accent_gray#%{GetPath("%:p:h", "true")}/%#__restore__#%f  %#__accent_bold_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 
 let g:airline#extensions#hunks#non_zero_only = 1
 
