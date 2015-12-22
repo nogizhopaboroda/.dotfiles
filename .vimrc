@@ -117,7 +117,24 @@ let g:airline_theme           = 'powerlineish'
 let g:airline#extensions#whitespace#enabled = 0 "disable whitespace plugin
 
 let g:airline_section_y = ''
-let g:airline_section_c='%< %#__accent_gray#%{GetPath("%:p:h", "true")}/%#__restore__#%f  %#__accent_bold_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+
+call airline#parts#define('directory', {
+          \ 'raw': '%{GetPath("%:p:h", "true")}/',
+          \ 'accent': 'gray',
+          \ })
+call airline#parts#define('file', {
+          \ 'raw': '%f '
+          \ })
+call airline#parts#define('change_sign', {
+          \ 'raw': '%m',
+          \ 'accent': 'red',
+          \ })
+call airline#parts#define('readonly', {
+          \ 'raw': '%{airline#util#wrap(airline#parts#readonly(),0)}',
+          \ 'accent': 'red',
+          \ })
+
+let g:airline_section_c = airline#section#create(['directory', 'file', 'change_sign', 'readonly'])
 
 let g:airline#extensions#hunks#non_zero_only = 1
 
