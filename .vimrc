@@ -89,8 +89,14 @@ nmap <silent> <D-A-Down> :wincmd j<CR>
 nmap <silent> <D-A-Left> :wincmd h<CR>
 nmap <silent> <D-A-Right> :wincmd l<CR>
 
-nmap <silent> <leader>v :call ToggleVerticalLine()<CR>
+  "" jump to start/end of word by alt-arrow
+map f e
+map b b
+inoremap f <C-o>e
+inoremap b <C-o>b
 
+  "" show/hide vertical line
+nmap <silent> <leader>v :call ToggleVerticalLine()<CR>
 
 "" PLUGINS SETTINGS
 "" ----------------
