@@ -284,6 +284,9 @@ function ApplyJsMacros()
   map mF omf
   map mc oif(){}k3li
   map mC oif(){} else {}2k3li
+  map md odebugger;
+  map ml oconsole.log();hi
+  map mr ovar  = require('');^4li
 endfunction
 
 autocmd Filetype html call ApplyHtmlMacros()
