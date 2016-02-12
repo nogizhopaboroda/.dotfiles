@@ -107,6 +107,11 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let NERDTreeShowHidden=1 ""show hidden files
 
+"" NERDCommenter
+let g:NERDCustomDelimiters = {
+    \ 'blade': {  'left': '{{-- ', 'right': ' --}}', 'leftAlt': '{{-- ','rightAlt': ' --}}' },
+\}
+
 "" airline
   "" add red accent
 function! AirlineThemePatch(palette)
