@@ -1,5 +1,5 @@
 "" my plugins for vim
-"" placeholder: 
+"" placeholder:
 "" NeoBundle ''
 
 NeoBundle 'henrik/vim-indexed-search'
@@ -15,6 +15,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'luochen1990/rainbow'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'ap/vim-css-color'
+NeoBundle 'wavded/vim-stylus'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'tpope/vim-fugitive'
