@@ -5,7 +5,7 @@
 NeoBundle 'henrik/vim-indexed-search'
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'powerline/fonts'

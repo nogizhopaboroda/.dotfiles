@@ -282,6 +282,13 @@ nnoremap <leader>% :MtaJumpToOtherTag<cr>
 let g:indexed_search_shortmess = 1
 let g:indexed_search_numbered_only = 1
 
+
+"" highlight files by type
+if filereadable(glob("~/.dotfiles/highlight_file_type.vim"))
+   source ~/.dotfiles/highlight_file_type.vim
+endif
+
+
 "" macros
 autocmd Filetype javascript call ApplyJsMacros()
 function ApplyJsMacros()
