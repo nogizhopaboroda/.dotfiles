@@ -6,9 +6,10 @@ endfunction
 
 call NERDTreeHighlightFile('json', '226', 'none', '#ffff00', 'NONE')
 call NERDTreeHighlightFile('js', '208', 'none', '#ff8700', 'NONE')
+call NERDTreeHighlightFile('es6.js', '209', 'none', '#ff875f', 'NONE')
 call NERDTreeHighlightFile('html', '35', 'none', '#00af5f', 'NONE')
 call NERDTreeHighlightFile('styl', '51', 'none', '#00ffff', 'NONE')
 call NERDTreeHighlightFile('css', '50', 'none', '#00ffd7', 'NONE')
-call NERDTreeHighlightFile('php', 'magenta', 'none', '#ff00ff', 'NONE')
+call NERDTreeHighlightFile('php', '132', 'none', '#af5f87', 'NONE')
 call NERDTreeHighlightFile('gitconfig', '242', 'none', '#6c6c6c', 'NONE')
 call NERDTreeHighlightFile('gitignore', '242', 'none', '#6c6c6c', 'NONE')
