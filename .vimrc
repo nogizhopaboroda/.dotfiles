@@ -1,6 +1,7 @@
 "" commands
 "" :Gitv - opens gitv plugin
 "" :Git <command> - shows git command results in new split pane
+"" :XtermColorTable - shows color table
 
 let g:cwd = getcwd()
 

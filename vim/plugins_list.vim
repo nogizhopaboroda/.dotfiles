@@ -2,6 +2,7 @@
 "" placeholder:
 "" NeoBundle ''
 
+NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'henrik/vim-indexed-search'
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'scrooloose/nerdtree'
