@@ -20,8 +20,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
-if filereadable(glob("~/.dotfiles/plugins_list.vim"))
-  source ~/.dotfiles/plugins_list.vim
+if filereadable(glob("~/.dotfiles/vim/plugins_list.vim"))
+  source ~/.dotfiles/vim/plugins_list.vim
 endif
 
 call neobundle#end()

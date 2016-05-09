@@ -4,8 +4,8 @@
 
 let g:cwd = getcwd()
 
-if filereadable(glob("~/.dotfiles/neobundle.vim"))
-   source ~/.dotfiles/neobundle.vim
+if filereadable(glob("~/.dotfiles/vim/neobundle.vim"))
+   source ~/.dotfiles/vim/neobundle.vim
 endif
 
 set autochdir
@@ -283,8 +283,8 @@ let g:indexed_search_numbered_only = 1
 
 
 "" highlight files by type
-if filereadable(glob("~/.dotfiles/highlight_file_type.vim"))
-   source ~/.dotfiles/highlight_file_type.vim
+if filereadable(glob("~/.dotfiles/vim/highlight_file_type.vim"))
+   source ~/.dotfiles/vim/highlight_file_type.vim
 endif
 
 
