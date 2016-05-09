@@ -4,15 +4,14 @@
 
 let g:cwd = getcwd()
 
-if filereadable(glob("~/.dotfiles/.neobundle"))
-   source ~/.dotfiles/.neobundle
+if filereadable(glob("~/.dotfiles/neobundle.vim"))
+   source ~/.dotfiles/neobundle.vim
 endif
 
 set autochdir
 set noswapfile
 
 "" file types
-au BufNewFile,BufRead .plugins_list set filetype=vim
 au BufNewFile,BufRead *.tpl.html set filetype=html.underscore_template
 au BufNewFile,BufRead *.blade.php set filetype=blade.html
 
