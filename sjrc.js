@@ -53,5 +53,24 @@ module.exports = {
       return document.querySelector('#head_play_btn').classList.contains('playing');
     },
     "current_media_title": function(){}
+  },
+  "soundcloud.com": {
+    "play": function(){
+      document.querySelector('.playControl').click();
+      return 'play';
+    },
+    "pause": function(){
+      document.querySelector('.playControl').click();
+      return 'pause';
+    },
+    "next": function(){
+      document.querySelector('.skipControl__next').click();
+    },
+    "prev": function(){
+      document.querySelector('.skipControl__previous').click();
+    },
+    "is_playing": function(){
+      return document.querySelector('.playControl').classList.contains('playing');
+    }
   }
 }
