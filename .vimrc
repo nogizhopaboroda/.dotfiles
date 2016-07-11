@@ -76,11 +76,18 @@ function ToggleVerticalLine()
   endif
 endfunction
 
+function SetFontSize( size )
+  let &guifont = substitute(&guifont, ':h\d\+$', ':h'.a:size, '')
+endfunction
+
 cnoreabbrev fp call CopyAndPrintPath('%:p', "true")
 cnoreabbrev fa call CopyAndPrintPath('%:p', "false")
 cnoreabbrev fn call CopyAndPrintPath('%:t', "false")
 
 cnoreabbrev pcd :execute 'cd ' . cwd
+
+cnoreabbrev presentation call SetFontSize(18)
+cnoreabbrev stop_presentation call SetFontSize(11)
 
 "" my keymappings
 nmap <silent> <D-A-Up> :wincmd k<CR>
