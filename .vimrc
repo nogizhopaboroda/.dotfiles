@@ -179,7 +179,7 @@ let g:airline_mode_map = {
       \ }
 
 "" fuzzy search
-set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip,*/.sass-cache/*,*/public_html/*
+set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip,*/.sass-cache/*,*/public_html/*,*/public/*
 
 "" rainbow brackets
 let g:rainbow_conf = {
