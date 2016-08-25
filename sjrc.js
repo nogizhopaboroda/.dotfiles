@@ -18,39 +18,23 @@ module.exports = {
     },
     "current_media_title": function(){}
   },
-  "vk.com/audio": {
+  "vk.com": {
     "play": function(){
-      document.querySelector('#ac_play').click();
+      document.querySelector('.top_audio_player_btn.top_audio_player_play').click();
       return 'play';
     },
     "pause": function(){
-      document.querySelector('#ac_play').click();
+      document.querySelector('.top_audio_player_btn.top_audio_player_play').click();
       return 'pause';
     },
     "next": function(){
-      document.querySelector('#ac_controls #ac_next').click();
+      document.querySelector('.top_audio_player_btn.top_audio_player_next').click();
     },
     "prev": function(){
-      document.querySelector('#ac_controls #ac_prev').click();
+      document.querySelector('.top_audio_player_btn.top_audio_player_prev').click();
     },
     "is_playing": function(){
-      return document.querySelector('#ac_play').classList.contains('playing');
-    },
-    "current_media_title": function(){}
-  },
-  "vk.com/im": {
-    "play": function(){
-      document.querySelector('#head_play_btn').click();
-      return 'play';
-    },
-    "pause": function(){
-      document.querySelector('#head_play_btn').click();
-      return 'pause';
-    },
-    "next": function(){},
-    "prev": function(){},
-    "is_playing": function(){
-      return document.querySelector('#head_play_btn').classList.contains('playing');
+      return document.querySelector('.top_audio_player').classList.contains('top_audio_player_playing');
     },
     "current_media_title": function(){}
   },
