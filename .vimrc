@@ -204,6 +204,11 @@ let g:rainbow_conf = {
 
 let g:rainbow_active = 1
 
+"" ctrlp
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtInsert("c")': ['<c-v>'],
+\}
+
 "" css
 augroup VimCSS3Syntax
 	 autocmd!
