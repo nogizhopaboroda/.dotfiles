@@ -35,6 +35,7 @@ NeoBundle 'xsbeats/vim-blade'
 NeoBundle 'rpbaltazar/vim-lodash-highlight'
 NeoBundle 'aaronj1335/underscore-templates.vim'
 NeoBundle 'Valloric/MatchTagAlways'
+NeoBundle 'idanarye/vim-casetrate'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',

@@ -294,6 +294,10 @@ let g:indexed_search_shortmess = 1
 let g:indexed_search_numbered_only = 1
 
 
+"" Change Case plugin (Casetrate)
+let g:casetrate_leader = '\t'
+
+
 "" highlight files by type
 if filereadable(glob("~/.dotfiles/vim/highlight_file_type.vim"))
    source ~/.dotfiles/vim/highlight_file_type.vim
