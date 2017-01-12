@@ -52,16 +52,19 @@ set hls
 map <silent> <C-Bslash> :noh<CR>
 
 "" my commands
-function GetPath( format, relative )
+function GetPath( format, relative, print_line )
   let path = expand(a:format)
   if a:relative == "true"
     let path = substitute(path, g:cwd . "/", "", "")
   endif
+  if a:print_line == "true"
+    let path = path . ":" . line(".")
+  endif
   return path
 endfunction
 
-function CopyAndPrintPath( format, relative )
-  let path = GetPath( a:format, a:relative )
+function CopyAndPrintPath( format, relative, print_line )
+  let path = GetPath( a:format, a:relative, a:print_line )
   call system('pbcopy', path)
   echo path
   echo 'Copied to clipboard'
@@ -80,9 +83,13 @@ function SetFontSize( size )
   let &guifont = substitute(&guifont, ':h\d\+$', ':h'.a:size, '')
 endfunction
 
-cnoreabbrev fp call CopyAndPrintPath('%:p', "true")
-cnoreabbrev fa call CopyAndPrintPath('%:p', "false")
-cnoreabbrev fn call CopyAndPrintPath('%:t', "false")
+cnoreabbrev fp call CopyAndPrintPath('%:p', "true", "false")
+cnoreabbrev fpl call CopyAndPrintPath('%:p', "true", "true")
+cnoreabbrev fa call CopyAndPrintPath('%:p', "false", "false")
+cnoreabbrev fal call CopyAndPrintPath('%:p', "false", "true")
+cnoreabbrev fn call CopyAndPrintPath('%:t', "false", "false")
+cnoreabbrev fnl call CopyAndPrintPath('%:t', "false", "true")
+cnoreabbrev fnn call CopyAndPrintPath('%:r', "false", "false")
 
 cnoreabbrev pcd :execute 'cd ' . cwd
 
@@ -136,7 +143,7 @@ let g:airline#extensions#whitespace#enabled = 0 "disable whitespace plugin
 let g:airline_section_y = ''
 
 call airline#parts#define('directory', {
-          \ 'raw': '%{GetPath("%:p:h", "true")}/',
+          \ 'raw': '%{GetPath("%:p:h", "true", "false")}/',
           \ 'accent': 'gray',
           \ })
 call airline#parts#define('file', {
