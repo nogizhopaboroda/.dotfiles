@@ -27,3 +27,10 @@ call NERDTreeHighlightFile('gitignore', '242', 'none', '#6c6c6c', 'NONE')
 call NERDTreeHighlightDirectory('node_modules', '242', 'none', '#6c6c6c', 'NONE')
 call NERDTreeHighlightDirectory('vendor', '242', 'none', '#6c6c6c', 'NONE')
 call NERDTreeHighlightDirectory('.git', '242', 'none', '#6c6c6c', 'NONE')
+call NERDTreeHighlightDirectory('.vagrant', '242', 'none', '#6c6c6c', 'NONE')
+call NERDTreeHighlightDirectory('public', '242', 'none', '#6c6c6c', 'NONE')
+call NERDTreeHighlightDirectory('public_html', '242', 'none', '#6c6c6c', 'NONE')
+
+call NERDTreeHighlightDirectory('test', '29', 'none', '#00875f', 'NONE')
+call NERDTreeHighlightDirectory('tests', '29', 'none', '#00875f', 'NONE')
+
