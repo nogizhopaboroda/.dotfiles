@@ -3,7 +3,7 @@
 [alias]
         co = checkout
         ci = commit
-        br = branch
+        br = rev-parse --abbrev-ref HEAD
         fr = !"git fetch && git rebase"
         dm = !"git branch --merged | grep -v '^* master$' | grep -v '^  master$' | xargs git branch -d"
         ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
