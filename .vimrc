@@ -13,6 +13,7 @@ set noswapfile
 
 "" file types
 au BufNewFile,BufRead *.tpl.html set filetype=html.underscore_template
+au BufNewFile,BufRead *.es6.html set filetype=html.js
 au BufNewFile,BufRead *.blade.php set filetype=blade.html
 
 "" indentation
@@ -20,7 +21,7 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-au FileType html,php setl sw=4 sts=4 et
+au FileType php setl sw=4 sts=4 et
 
 "" fix backspace problem in cli vim
 set backspace=2
