@@ -15,6 +15,7 @@ set noswapfile
 au BufNewFile,BufRead *.tpl.html set filetype=html.underscore_template
 au BufNewFile,BufRead *.es6.html set filetype=html.js
 au BufNewFile,BufRead *.blade.php set filetype=blade.html
+au BufNewFile,BufRead *.css set filetype=scss.css
 
 "" indentation
 set expandtab
