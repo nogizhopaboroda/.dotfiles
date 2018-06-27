@@ -12,8 +12,8 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'powerline/fonts'
 NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
-NeoBundle 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
-NeoBundle 'pangloss/vim-javascript'
+"NeoBundle 'pangloss/vim-javascript'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'luochen1990/rainbow'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'ap/vim-css-color'
