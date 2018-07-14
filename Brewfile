@@ -1,19 +1,19 @@
-tap 'caskroom/cask'
-
-brew 'aws-elasticbeanstalk'
-brew 'aws-shell'
-brew 'awscli'
-brew 'terraform'
-brew 'the_platinum_searcher'
-brew 'wget'
-brew 'yarn'
-
-cask 'atom'
-cask 'filezilla'
-cask 'firefox'
-cask 'google-chrome'
-cask 'macvim'
-cask 'skype'
-cask 'slack'
-cask 'spotify'
-
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "phinze/cask"
+brew "aws-elasticbeanstalk"
+brew "aws-shell"
+brew "awscli"
+brew "terraform"
+brew "the_platinum_searcher"
+brew "wget"
+brew "yarn", args: ["without-node"]
+cask "phinze/cask/atom"
+cask "phinze/cask/filezilla"
+cask "phinze/cask/firefox"
+cask "phinze/cask/google-chrome"
+cask "phinze/cask/macvim"
+cask "phinze/cask/skype"
+cask "phinze/cask/slack"
+cask "phinze/cask/spotify"

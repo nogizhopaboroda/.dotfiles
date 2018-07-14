@@ -19,3 +19,5 @@ alias pick-commit="git log --pretty=format:'%H %s' | pick | grep -o '^\S*' | tr 
 alias pick-branch="git branch | pick | tr -d ' '"
 alias jsn="python -mjson.tool"
 alias jsnp="python -c \"import sys; jsonp=sys.stdin.read(); print(jsonp[ jsonp.index('(') + 1 : jsonp.rindex(')') ])\" | jsn"
+
+alias dump-brew="cd ~/.dotfiles && brew bundle dump --force && echo 'dumped in dotfiles dir' && cd -"
