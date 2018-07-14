@@ -25,3 +25,4 @@ alias serve="python -m SimpleHTTPServer"
 
 alias dump-brew="cd ~/.dotfiles && brew bundle dump --force && echo 'dumped in dotfiles dir' && cd -"
 
+alias cat="ccat --color='always'"
