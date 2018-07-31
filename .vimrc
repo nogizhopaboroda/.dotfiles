@@ -228,6 +228,9 @@ augroup VimCSS3Syntax
 	 autocmd FileType css setlocal iskeyword+=-
 augroup END
 
+"" terraform commenter
+autocmd FileType terraform setlocal commentstring=#%s
+
 "" commenter
 filetype plugin on
 
