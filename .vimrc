@@ -4,8 +4,10 @@
 
 let g:cwd = getcwd()
 
-if filereadable(glob("~/.dotfiles/vim/neobundle.vim"))
-   source ~/.dotfiles/vim/neobundle.vim
+let s:this_dir = expand("<sfile>:h")
+
+if filereadable(glob(s:this_dir . "/vim/neobundle.vim"))
+   execute "source " . s:this_dir . "/vim/neobundle.vim"
 endif
 
 set autochdir
