@@ -60,7 +60,7 @@ noremap jj <esc>
 function GetPath( format, relative, print_line )
   let path = expand(a:format)
   if a:relative == "true"
-    let path = substitute(path, g:cwd . "/", "", "")
+    let path = substitute(path, g:cwd . "/\\?", "", "")
   endif
   if a:print_line == "true"
     let path = path . ":" . line(".")
@@ -313,6 +313,8 @@ let g:indexed_search_numbered_only = 1
 "" Change Case plugin (Casetrate)
 let g:casetrate_leader = '\t'
 
+"" Taboo plugin format
+let g:taboo_tab_format = "%{get(split(GetPath('%:p:h', 'true', 'false'), '/'), -1, '') }/%f %m"
 
 "" highlight files by type
 if filereadable(glob("~/.dotfiles/vim/highlight_file_type.vim"))
