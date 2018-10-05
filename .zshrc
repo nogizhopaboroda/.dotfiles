@@ -3,6 +3,9 @@ export EDITOR='vim'
 
 
 #functions
+
+#usage:
+#git only-new | each rm
 function each() {
   while read line; do
     for f in "$@"; do
