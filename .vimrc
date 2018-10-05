@@ -6,9 +6,16 @@ let g:cwd = getcwd()
 
 let s:this_dir = expand("<sfile>:h")
 
-if filereadable(glob(s:this_dir . "/vim/neobundle.vim"))
-   execute "source " . s:this_dir . "/vim/neobundle.vim"
-endif
+function s:importFile( filename )
+  let filePath = s:this_dir . '/' . a:filename
+  if filereadable(glob(filePath))
+     execute "source " . filePath
+  else
+    echo 'Could not find file: ' . filePath
+  endif
+endfunction
+
+call s:importFile('vim/neobundle.vim')
 
 set autochdir
 set noswapfile
@@ -24,7 +31,7 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-au FileType php setl sw=4 sts=4 et
+au FileType php,python setl sw=4 sts=4 et
 
 "" fix backspace problem in cli vim
 set backspace=2
