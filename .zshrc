@@ -42,7 +42,7 @@ alias jsnp="python -c \"import sys; jsonp=sys.stdin.read(); print(jsonp[ jsonp.i
 
 alias serve="python -m SimpleHTTPServer"
 
-alias dump-brew="brew bundle dump --force --file=~/.dotfiles/Brewfile --verbose && echo 'dumped in brew bundle dump --force --file=~/.dotfiles/Brewfile --verbose'"
+alias dump-brew="brew bundle dump --force --file=~/.dotfiles/Brewfile --verbose && echo 'dumped in ~/.dotfiles/Brewfile'"
 
 alias sl="pmset sleepnow"
 alias re-source="source ~/.zshrc"
