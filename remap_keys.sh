@@ -4,7 +4,7 @@ TO='"HIDKeyboardModifierMappingDst"'
 # key codes from https://developer.apple.com/library/archive/technotes/tn2450/_index.html#//apple_ref/doc/uid/DTS40017618-CH1-KEY_TABLE_USAGES
 SECTION="0x700000064" # §/± button
 ESCAPE="0x700000029"
-SHIFT_LOCK="0x700000039" #caps lock
+CAPS_LOCK="0x700000039" #caps lock
 
 function _Map # FROM TO
 {
@@ -18,5 +18,6 @@ function _MapDefaults
 
 
 _Map ${SECTION} ${ESCAPE}
+_Map ${CAPS_LOCK} ${ESCAPE}
 
 hidutil property --set "{\"UserKeyMapping\":[${CMD}]}" > /dev/null
