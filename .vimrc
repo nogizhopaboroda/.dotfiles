@@ -136,6 +136,10 @@ nmap <silent> <leader>v :call ToggleVerticalLine()<CR>
   "" toggle nerd tree
 nmap <silent> <Leader>f :call ToggleNerdTree()<CR>
 
+
+autocmd FileType javascript,json nmap <buffer> <C-w>gf <Plug>NodeGotoFile
+autocmd FileType javascript,json nmap <buffer> gf <Plug>NodeTabGotoFile
+
 "" PLUGINS SETTINGS
 "" ----------------
 

@@ -54,3 +54,4 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'hashivim/vim-terraform'
 NeoBundle 'gcmt/taboo.vim'
+NeoBundle 'FabioAntunes/vim-node'
