@@ -134,6 +134,22 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let NERDTreeShowHidden=1 ""show hidden files
 
+nnoremap <silent> <Leader>f :NERDTreeFind<CR>
+
+let g:NERDTreeIndicatorMapCustom = {
+\ "Modified"  : "~",
+\ "Staged"    : "+",
+\ "Untracked" : "✭",
+\ "Renamed"   : "➜",
+\ "Unmerged"  : "═",
+\ "Deleted"   : "-",
+\ "Dirty"     : "✗",
+\ "Clean"     : "✔︎",
+\ 'Ignored'   : '☒',
+\ "Unknown"   : "?"
+\ }
+
+
 "" NERDCommenter
 let g:NERDCustomDelimiters = {
     \ 'blade': {  'left': '{{-- ', 'right': ' --}}', 'leftAlt': '{{-- ','rightAlt': ' --}}' },
