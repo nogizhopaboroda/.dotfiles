@@ -148,12 +148,12 @@ let NERDTreeShowHidden=1 ""show hidden files
 "" NERDTree Git
 let g:NERDTreeIndicatorMapCustom = {
 \ "Modified"  : "~",
-\ "Staged"    : "+",
-\ "Untracked" : "✭",
+\ "Staged"    : "✚",
+\ "Untracked" : "+",
 \ "Renamed"   : "➜",
+\ "Dirty"     : "~",
 \ "Unmerged"  : "═",
 \ "Deleted"   : "-",
-\ "Dirty"     : "✗",
 \ "Clean"     : "✔︎",
 \ 'Ignored'   : '☒',
 \ "Unknown"   : "?"
