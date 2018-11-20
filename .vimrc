@@ -93,6 +93,14 @@ function ToggleVerticalLine()
   endif
 endfunction
 
+function ToggleNerdTree()
+  if g:NERDTree.IsOpen()
+    NERDTreeClose
+  else
+    exec 'NERDTree ' . g:cwd | wincmd p | NERDTreeFind
+  endif
+endfunction
+
 function SetFontSize( size )
   let &guifont = substitute(&guifont, ':h\d\+$', ':h'.a:size, '')
 endfunction
@@ -125,6 +133,9 @@ inoremap b <C-o>b
   "" show/hide vertical line
 nmap <silent> <leader>v :call ToggleVerticalLine()<CR>
 
+  "" toggle nerd tree
+nmap <silent> <Leader>f :call ToggleNerdTree()<CR>
+
 "" PLUGINS SETTINGS
 "" ----------------
 
@@ -134,8 +145,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let NERDTreeShowHidden=1 ""show hidden files
 
-nnoremap <silent> <Leader>f :NERDTreeFind<CR>
-
+"" NERDTree Git
 let g:NERDTreeIndicatorMapCustom = {
 \ "Modified"  : "~",
 \ "Staged"    : "+",
