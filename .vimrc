@@ -143,6 +143,9 @@ autocmd FileType javascript,json nmap <buffer> gf <Plug>NodeTabGotoFile
 "" PLUGINS SETTINGS
 "" ----------------
 
+"" GitGutter
+set updatetime=500
+
 "" NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
