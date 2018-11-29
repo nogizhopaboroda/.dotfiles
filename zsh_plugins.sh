@@ -1,13 +1,13 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-
 zplug "robbyrussell/oh-my-zsh", use:"*.sh"
 
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/terraform", from:oh-my-zsh
 zplug "themes/robbyrussell", from:oh-my-zsh
 
+zplug "zdharma/history-search-multi-word", defer:1
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 
