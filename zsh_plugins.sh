@@ -7,6 +7,8 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/terraform", from:oh-my-zsh
 zplug "themes/robbyrussell", from:oh-my-zsh
 
+zplug "lukechilds/zsh-nvm"
+
 zplug "zdharma/history-search-multi-word", defer:1
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
