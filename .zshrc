@@ -1,5 +1,6 @@
 HERE=`dirname "$0"`
 
+BREW_WORKSPACE=${BREW_WORKSPACE:-'default'}
 
 source $HERE/zsh_plugins.sh
 
@@ -42,7 +43,9 @@ alias jsnp="python -c \"import sys; jsonp=sys.stdin.read(); print(jsonp[ jsonp.i
 
 alias serve="python -m SimpleHTTPServer"
 
-alias dump-brew="brew bundle dump --force --file=~/.dotfiles/Brewfile --verbose && echo 'dumped in ~/.dotfiles/Brewfile'"
+alias dump-brew="BREWFILE_PATH='~/.dotfiles/Brewfile.$BREW_WORKSPACE' && brew bundle dump --force --file='$BREWFILE_PATH' --verbose && echo 'dumped in $BREWFILE_PATH'"
+
+alias show-workspace="echo $BREW_WORKSPACE"
 
 alias sl="pmset sleepnow"
 alias re-source="source ~/.zshrc"
