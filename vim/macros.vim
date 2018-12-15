@@ -21,3 +21,8 @@ function ApplyStylesMacros()
   map mt odiv {}k3li
   map mm o@media () {}k8li
 endfunction
+
+autocmd Filetype python call ApplyPythonMacros()
+function ApplyPythonMacros()
+  map md opdb.set_trace()
+endfunction
