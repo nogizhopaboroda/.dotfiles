@@ -52,3 +52,4 @@ alias re-source="source ~/.zshrc"
 
 alias cat="ccat --color='always'"
 
+alias tt="translate -S"
