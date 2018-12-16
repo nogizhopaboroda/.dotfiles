@@ -10,6 +10,7 @@ zplug "themes/robbyrussell", from:oh-my-zsh
 zplug "lukechilds/zsh-nvm"
 
 zplug "nogizhopaboroda/multitran_cli", as:command, use:translate
+zplug "k4rthik/git-cal", as:command
 
 zplug "zdharma/history-search-multi-word", defer:1
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
