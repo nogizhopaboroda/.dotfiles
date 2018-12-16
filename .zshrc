@@ -37,6 +37,11 @@ function dump-brew(){
   echo "dumped in $BREWFILE_PATH"
 }
 
+function sg(){
+  LINK="http://www.google.com/search?hl=en&q=$@"
+  open $LINK
+}
+
 
 #aliases
 alias pbr="git br"
