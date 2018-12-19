@@ -65,6 +65,8 @@ map <silent> <C-Bslash> :noh<CR>
 inoremap jj <esc>
 noremap jj <esc>
 
+vnoremap <M-c> "+y
+
 "" my commands
 function GetPath( format, relative, print_line )
   let path = expand(a:format)
