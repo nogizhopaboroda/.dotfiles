@@ -6,7 +6,7 @@ cd ~
 
 #curl brewfile
 #brew bundle install
-# cd $(mktemp -d) && curl https://raw.githubusercontent.com/nogizhopaboroda/.dotfiles/master/Brewfile.default > Brewfile && brew bundle install
+cd $(mktemp -d) && curl https://raw.githubusercontent.com/nogizhopaboroda/.dotfiles/master/Brewfile.default > Brewfile && brew bundle install
 
 # clone repo
 git clone https://github.com/nogizhopaboroda/.dotfiles.git ~/.dotfiles
@@ -36,6 +36,9 @@ EOT
 
 # install neobundle
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+
+# install neovim client
+pip install neovim
 
 # gem install xcode-install
 
