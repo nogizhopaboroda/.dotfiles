@@ -26,11 +26,11 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'marijnh/tern_for_vim', {
-\ 'build' : {
-\     'others' : 'npm install',
-\    },
-\ }
+"NeoBundle 'marijnh/tern_for_vim', {
+"\ 'build' : {
+"\     'others' : 'npm install',
+"\    },
+"\ }
 NeoBundle 'ramitos/jsctags'
 NeoBundle 't9md/vim-surround_custom_mapping'
 NeoBundle 'tpope/vim-repeat'
