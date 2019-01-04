@@ -126,6 +126,14 @@ nmap <silent> <D-A-Down> :wincmd j<CR>
 nmap <silent> <D-A-Left> :wincmd h<CR>
 nmap <silent> <D-A-Right> :wincmd l<CR>
 
+nmap <silent> <C-S-Up> :wincmd k<CR>
+nmap <silent> <C-S-Down> :wincmd j<CR>
+nmap <silent> <C-S-Left> :wincmd h<CR>
+nmap <silent> <C-S-Right> :wincmd l<CR>
+
+nmap <silent> <S-Right> :tabnext<CR>
+nmap <silent> <S-Left> :tabprev<CR>
+
   "" jump to start/end of word by alt-arrow
 map f e
 map b b
