@@ -31,6 +31,11 @@ NeoBundle 'majutsushi/tagbar'
 "\     'others' : 'npm install',
 "\    },
 "\ }
+NeoBundle 'prettier/vim-prettier', {
+\ 'build' : {
+\     'others' : 'npm install',
+\    },
+\ }
 NeoBundle 'ramitos/jsctags'
 NeoBundle 't9md/vim-surround_custom_mapping'
 NeoBundle 'tpope/vim-repeat'
