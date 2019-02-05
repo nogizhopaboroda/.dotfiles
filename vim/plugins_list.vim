@@ -64,3 +64,7 @@ NeoBundle 'FabioAntunes/vim-node'
 NeoBundle 'zivyangll/git-blame.vim'
 NeoBundle 'junegunn/gv.vim'
 NeoBundle 'RRethy/vim-illuminate'
+"NeoBundle 'mxw/vim-jsx'
+NeoBundle 'maxmellon/vim-jsx-pretty'
+NeoBundle 'jparise/vim-graphql'
+
