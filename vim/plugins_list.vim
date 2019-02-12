@@ -67,4 +67,4 @@ NeoBundle 'RRethy/vim-illuminate'
 "NeoBundle 'mxw/vim-jsx'
 NeoBundle 'maxmellon/vim-jsx-pretty'
 NeoBundle 'jparise/vim-graphql'
-
+NeoBundle 'matchit.zip'
