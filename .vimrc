@@ -368,6 +368,13 @@ let g:casetrate_leader = '\t'
 "" Taboo plugin format
 let g:taboo_tab_format = "%{get(split(GetPath('%:p:h', 'true', 'false'), '/'), -1, '') }/%f %m"
 
+"" Vim tagged template highlight plugin
+let g:taggedtemplate#tagSyntaxMap = {
+  \ "html": "html",
+  \ "css":  "css" }
+
+autocmd FileType javascript,typescript : call taggedtemplate#applySyntaxMap()
+
 "" highlight files by type
 if filereadable(glob("~/.dotfiles/vim/highlight_file_type.vim"))
    source ~/.dotfiles/vim/highlight_file_type.vim
