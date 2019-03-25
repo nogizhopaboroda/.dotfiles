@@ -1,3 +1,5 @@
+#!/bin/bash
+
 FROM='"HIDKeyboardModifierMappingSrc"'
 TO='"HIDKeyboardModifierMappingDst"'
 

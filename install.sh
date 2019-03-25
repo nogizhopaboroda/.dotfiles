@@ -34,6 +34,9 @@ if filereadable(glob("~/.dotfiles/.vimrc"))
 endif
 EOT
 
+# add cron jobs
+crontab ~/.dotfiles/crontab.autoload
+
 # install neobundle
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
