@@ -62,10 +62,28 @@ set hls
   "" unhighlight
 map <silent> <C-Bslash> :noh<CR>
 
+"" not sure if i still need it
 inoremap jj <esc>
 noremap jj <esc>
 
+"" copy to system clipboard
 vnoremap <M-c> "+y
+
+"" Alt + ->  -  go to the beginning of the next word
+nmap <A-Right> w
+imap <A-Right> <C-o>w
+"" Alt + ->  -  go to the beginning of the next word
+nmap <A-Left> b
+imap <A-Left> <C-o>b
+
+"" Alt + ->  -  go to the beginning of the next word
+nmap <C-e> $
+imap <C-e> <C-o>$
+"" Alt + ->  -  go to the beginning of the next word
+nmap <C-a> 0
+imap <C-a> <C-o>0
+
+
 
 "" my commands
 function GetPath( format, relative, print_line )
