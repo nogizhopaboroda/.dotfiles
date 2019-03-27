@@ -384,7 +384,7 @@ let g:indexed_search_numbered_only = 1
 let g:casetrate_leader = '\t'
 
 "" Taboo plugin format
-let g:taboo_tab_format = "%{get(split(GetPath('%:p:h', 'true', 'false'), '/'), -1, '') }/%f %m"
+let g:taboo_tab_format = "%P/%f %m"
 
 "" Vim tagged template highlight plugin
 let g:taggedtemplate#tagSyntaxMap = {
