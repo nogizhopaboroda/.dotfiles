@@ -12,15 +12,25 @@ function! NERDTreeHighlightDirectory(directory, fg, bg, guifg, guibg)
   exec 'autocmd FileType nerdtree syn match ' . a:directory . ' #'. a:directory .'/$#  containedin=NERDTreeDir'
 endfunction
 
+call NERDTreeHighlightFile('md', '65', 'none', '#5f875f', 'NONE')
+
 call NERDTreeHighlightFile('json', '226', 'none', '#ffff00', 'NONE')
 call NERDTreeHighlightFile('js', '208', 'none', '#ff8700', 'NONE')
+call NERDTreeHighlightFile('jsx', '214', 'none', '#ffaf00', 'NONE')
+
+call NERDTreeHighlightFile('ts', '153', 'none', '#afdfff', 'NONE')
+call NERDTreeHighlightFile('tsx', '158', 'none', '#afffdf', 'NONE')
+
 call NERDTreeHighlightFile('es6.js', '209', 'none', '#ff875f', 'NONE')
 call NERDTreeHighlightFile('html', '35', 'none', '#00af5f', 'NONE')
 call NERDTreeHighlightFile('tpl.html', '36', 'none', '#00af87', 'NONE')
+
 call NERDTreeHighlightFile('styl', '51', 'none', '#00ffff', 'NONE')
 call NERDTreeHighlightFile('css', '50', 'none', '#00ffd7', 'NONE')
+
 call NERDTreeHighlightFile('php', '132', 'none', '#af5f87', 'NONE')
 call NERDTreeHighlightFile('blade.php', '34', 'none', '#00af00', 'NONE')
+
 call NERDTreeHighlightFile('gitconfig', '242', 'none', '#6c6c6c', 'NONE')
 call NERDTreeHighlightFile('gitignore', '242', 'none', '#6c6c6c', 'NONE')
 
