@@ -393,6 +393,9 @@ let g:taggedtemplate#tagSyntaxMap = {
 
 autocmd FileType javascript,typescript : call taggedtemplate#applySyntaxMap()
 
+"" syntax highlight for jest
+autocmd BufReadPost,BufNewFile *test.js set filetype=jasmine.javascript syntax=jasmine.javascript
+
 "" highlight files by type
 if filereadable(glob("~/.dotfiles/vim/highlight_file_type.vim"))
    source ~/.dotfiles/vim/highlight_file_type.vim
