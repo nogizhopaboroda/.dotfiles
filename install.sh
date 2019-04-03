@@ -34,6 +34,13 @@ if filereadable(glob("~/.dotfiles/.vimrc"))
 endif
 EOT
 
+# add custom kitty config
+cat <<EOT >> ~/.config/kitty/kitty.conf
+if filereadable(glob("~/.dotfiles/kitty.conf"))
+   include ~/.dotfiles/kitty.conf
+endif
+EOT
+
 # add cron jobs
 crontab ~/.dotfiles/crontab.autoload
 
