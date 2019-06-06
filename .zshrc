@@ -62,3 +62,5 @@ alias re-source="source ~/.zshrc"
 alias cat="ccat --color='always'"
 
 alias tt="translate -S"
+
+alias sha256="openssl dgst -sha256"
