@@ -2,44 +2,45 @@
 
 "" :XtermColorTable - shows color table
 
-let s:gray = "6c6c6c" """#6c6c6c
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+  exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
 
-let g:NERDTreeExtensionHighlightColor = {}
+function! NERDTreeHighlightDirectory(directory, fg, bg, guifg, guibg)
+  exec 'autocmd FileType nerdtree highlight ' . a:directory . ' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'autocmd FileType nerdtree syn match ' . a:directory . ' #'. a:directory .'/$#  containedin=NERDTreeDir'
+endfunction
 
-let g:NERDTreeExtensionHighlightColor['md'] = "5f875f" """#5f875f
+call NERDTreeHighlightFile('md', '65', 'none', '#5f875f', 'NONE')
 
-let g:NERDTreeExtensionHighlightColor['json'] = "ffff00" """#ffff00
-let g:NERDTreeExtensionHighlightColor['js'] = "ff8700" """#ff8700
-let g:NERDTreeExtensionHighlightColor['jsx'] = "ffaf00" """#ffaf00
+call NERDTreeHighlightFile('json', '226', 'none', '#ffff00', 'NONE')
+call NERDTreeHighlightFile('js', '208', 'none', '#ff8700', 'NONE')
+call NERDTreeHighlightFile('jsx', '214', 'none', '#ffaf00', 'NONE')
 
-let g:NERDTreeExtensionHighlightColor['ts'] = "afdfff" """#afdfff
-let g:NERDTreeExtensionHighlightColor['tsx'] = "afffdf" """#afffdf
+call NERDTreeHighlightFile('ts', '153', 'none', '#afdfff', 'NONE')
+call NERDTreeHighlightFile('tsx', '158', 'none', '#afffdf', 'NONE')
 
-let g:NERDTreeExtensionHighlightColor['html'] = "00af5f" """#00af5f
+call NERDTreeHighlightFile('es6.js', '209', 'none', '#ff875f', 'NONE')
+call NERDTreeHighlightFile('html', '35', 'none', '#00af5f', 'NONE')
+call NERDTreeHighlightFile('tpl.html', '36', 'none', '#00af87', 'NONE')
 
-let g:NERDTreeExtensionHighlightColor['css'] = "00ffd7" """#00ffd7
+call NERDTreeHighlightFile('styl', '51', 'none', '#00ffff', 'NONE')
+call NERDTreeHighlightFile('css', '50', 'none', '#00ffd7', 'NONE')
 
-let g:NERDTreeExtensionHighlightColor['php'] = "00ffd7" """#af5f87
+call NERDTreeHighlightFile('php', '132', 'none', '#af5f87', 'NONE')
+call NERDTreeHighlightFile('blade.php', '34', 'none', '#00af00', 'NONE')
 
+call NERDTreeHighlightFile('gitconfig', '242', 'none', '#6c6c6c', 'NONE')
+call NERDTreeHighlightFile('gitignore', '242', 'none', '#6c6c6c', 'NONE')
 
-let g:NERDTreeExactMatchHighlightColor = {}
+call NERDTreeHighlightDirectory('node_modules', '242', 'none', '#6c6c6c', 'NONE')
+call NERDTreeHighlightDirectory('vendor', '242', 'none', '#6c6c6c', 'NONE')
+call NERDTreeHighlightDirectory('.git', '242', 'none', '#6c6c6c', 'NONE')
+call NERDTreeHighlightDirectory('.vagrant', '242', 'none', '#6c6c6c', 'NONE')
+call NERDTreeHighlightDirectory('public', '242', 'none', '#6c6c6c', 'NONE')
+call NERDTreeHighlightDirectory('public_html', '242', 'none', '#6c6c6c', 'NONE')
 
-let g:NERDTreeExactMatchHighlightColor['.gitconfig'] = s:gray
-let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:gray
-
-""" directories
-let g:NERDTreeExactMatchHighlightColor['node_modules/'] = s:gray
-let g:NERDTreeExactMatchHighlightColor['vendor/'] = s:gray
-let g:NERDTreeExactMatchHighlightColor['.git/'] = s:gray
-let g:NERDTreeExactMatchHighlightColor['.cache/'] = s:gray
-let g:NERDTreeExactMatchHighlightColor['.vagrant/'] = s:gray
-let g:NERDTreeExactMatchHighlightColor['public/'] = s:gray
-let g:NERDTreeExactMatchHighlightColor['public_html/'] = s:gray
-let g:NERDTreeExactMatchHighlightColor['dist/'] = s:gray
-
-let g:NERDTreeExactMatchHighlightColor['test/'] = "00875f" """#00875f
-let g:NERDTreeExactMatchHighlightColor['tests/'] = "00875f" """#00875f
-
-
-let g:NERDTreePatternMatchHighlightColor = {}
+call NERDTreeHighlightDirectory('test', '29', 'none', '#00875f', 'NONE')
+call NERDTreeHighlightDirectory('tests', '29', 'none', '#00875f', 'NONE')
 
