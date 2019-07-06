@@ -201,6 +201,11 @@ let g:NERDCustomDelimiters = {
     \ 'blade': {  'left': '{{-- ', 'right': ' --}}', 'leftAlt': '{{-- ','rightAlt': ' --}}' },
     \ 'scss': {  'left': '/* ', 'right': ' */', 'leftAlt': '/* ','rightAlt': ' */' },
 \}
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
 
 "" airline
   "" add red accent
