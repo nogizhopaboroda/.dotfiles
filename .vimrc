@@ -16,6 +16,7 @@ function s:importFile( filename )
 endfunction
 
 call s:importFile('vim/neobundle.vim')
+call s:importFile('vim/convert_color.vim')
 
 set autochdir
 set noswapfile
@@ -204,8 +205,8 @@ let g:NERDCustomDelimiters = {
 "" airline
   "" add red accent
 function! AirlineThemePatch(palette)
-  let a:palette.accents.bold_red = [  '#ff0000' , '' , 160 , '', 'bold'   ]
-  let a:palette.accents.gray = [  '#444444' , '' , 59 , '', ''   ]
+  let a:palette.accents.bold_red = [  '#ff0000' , '' , RGB('#ff0000') , '', 'bold'   ]
+  let a:palette.accents.gray = [  '#444444' , '' , RGB('#444444') , '', ''   ]
 endfunction
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 call airline#highlighter#add_accent('bold_red')
@@ -267,17 +268,11 @@ set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip,*/.sass-cache/*,*/publ
 "" rainbow brackets
 let g:rainbow_conf = {
     \   'guifgs': ['#CDDC39', '#FF5252', '#FF9800', '#4CAF50', '#E91E63'],
-    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+    \   'ctermfgs': [RGB('#CDDC39'), RGB('#FF5252'), RGB('#FF9800'), RGB('#4CAF50'), RGB('#E91E63')],
     \   'operators': '_,_',
     \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
     \   'separately': {
     \       '*': {},
-    \       'tex': {
-    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-    \       },
-    \       'lisp': {
-    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-    \       },
     \       'vim': {
     \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
     \       },
