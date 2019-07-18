@@ -21,6 +21,9 @@ call s:importFile('vim/convert_color.vim')
 set autochdir
 set noswapfile
 
+"" Autoreload files on change
+set autoread
+
 "" file types
 au BufNewFile,BufRead *.tpl.html set filetype=html.underscore_template
 au BufNewFile,BufRead *.es6.html set filetype=html.js

@@ -34,11 +34,17 @@ if filereadable(glob("~/.dotfiles/.vimrc"))
 endif
 EOT
 
+# add custom .tmux.conf
+cat <<EOT >> ~/.tmux.conf
+source-file ~/.dotfiles/.tmux.conf
+EOT
+
+# install tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # add custom kitty config
 cat <<EOT >> ~/.config/kitty/kitty.conf
-if filereadable(glob("~/.dotfiles/kitty.conf"))
-   include ~/.dotfiles/kitty.conf
-endif
+include ~/.dotfiles/kitty.conf
 EOT
 
 # add cron jobs
