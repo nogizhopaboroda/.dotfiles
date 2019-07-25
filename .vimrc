@@ -49,6 +49,13 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+"" remove background if in terminal
+if(!has('gui_running'))
+  hi! Normal ctermbg=NONE guibg=NONE
+  hi! NonText ctermbg=NONE guibg=NONE
+endif
+
+
 "" vertical bar cursor shape in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
