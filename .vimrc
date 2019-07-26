@@ -49,11 +49,9 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-"" remove background if in terminal
-if(!has('gui_running'))
-  hi! Normal ctermbg=NONE guibg=NONE
-  hi! NonText ctermbg=NONE guibg=NONE
-endif
+"" remove background in terminal
+hi! Normal ctermbg=NONE
+hi! NonText ctermbg=NONE
 
 
 "" vertical bar cursor shape in insert mode
