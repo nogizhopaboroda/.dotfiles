@@ -395,11 +395,9 @@ let g:casetrate_leader = '\t'
 let g:taboo_tab_format = "%P/%f %m"
 
 "" Vim tagged template highlight plugin
-let g:taggedtemplate#tagSyntaxMap = {
-  \ "html": "html",
-  \ "css":  "css" }
-
-autocmd FileType javascript,typescript : call taggedtemplate#applySyntaxMap()
+call jspretmpl#register_tag('gql', 'graphql')
+call jspretmpl#register_tag('html', 'html')
+autocmd FileType javascript,typescript JsPreTmpl
 
 "" syntax highlight for jest
 autocmd BufReadPost,BufNewFile *test.js set filetype=jasmine.javascript syntax=jasmine.javascript
