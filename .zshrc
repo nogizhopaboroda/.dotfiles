@@ -6,7 +6,7 @@ BREWFILE_PATH=$HERE/Brewfile.$BREW_WORKSPACE
 source $HERE/zsh_plugins.sh
 
 #general settings
-export EDITOR='vim'
+export EDITOR='nvim'
 
 #colorize man pages
 export MANROFFOPT='-c'
