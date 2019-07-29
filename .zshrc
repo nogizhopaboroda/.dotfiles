@@ -8,8 +8,8 @@ source $HERE/zsh_plugins.sh
 #general settings
 export EDITOR='vim'
 
-bindkey "[D" backward-word
-bindkey "[C" forward-word
+bindkey "^[[1;3D" backward-word
+bindkey "^[[1;3C" forward-word
 
 
 #functions
