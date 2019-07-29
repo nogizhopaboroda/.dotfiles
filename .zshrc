@@ -10,6 +10,7 @@ export EDITOR='vim'
 
 bindkey "^[[1;3D" backward-word
 bindkey "^[[1;3C" forward-word
+bindkey "^[r"     clear-screen
 
 
 #functions
