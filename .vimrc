@@ -401,6 +401,7 @@ autocmd FileType javascript,typescript JsPreTmpl
 
 "" syntax highlight for jest
 autocmd BufReadPost,BufNewFile *test.js set filetype=jasmine.javascript syntax=jasmine.javascript
+autocmd BufReadPost,BufNewFile *test.ts set filetype=jasmine.typescript syntax=jasmine.typescript
 
 "" highlight files by type
 if filereadable(glob("~/.dotfiles/vim/highlight_file_type.vim"))
