@@ -7,7 +7,6 @@ NeoBundle 'henrik/vim-indexed-search'
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
@@ -57,7 +56,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'hashivim/vim-terraform'
 NeoBundle 'gcmt/taboo.vim'
 NeoBundle 'FabioAntunes/vim-node'

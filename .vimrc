@@ -333,37 +333,6 @@ augroup markdown
       au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
-
-"" unite settings
-  "" Custom ignores
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', join([
-      \ '\.git/',
-      \ 'tmp/',
-      \ '.sass-cache',
-      \ 'node_modules/',
-      \ 'bower_components/',
-      \ 'dist/',
-      \ '.vagrant/',
-      \ '.pyc',
-      \ ], '\|'))
-
-let g:unite_prompt='» '
-
-if executable('pt')
-  let g:unite_source_rec_async_command = 'pt --nocolor --nogroup -g'
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --smart-case'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_encoding = 'utf-8'
-endif
-
-" nnoremap <C-k> :Unite file_rec/async<cr>
-nnoremap <C-p> :execute 'Unite -start-insert file_rec/async:' . cwd<cr>
-"" nnoremap <C-k> :Unite grep:.<cr>
-nnoremap <space>/ :execute 'Unite grep:' . cwd<cr>
-
-
 "" surround custom mappings
 let g:surround_custom_mapping = {}
 let g:surround_custom_mapping.javascript = {
@@ -403,6 +372,24 @@ autocmd FileType javascript,typescript JsPreTmpl
 hi illuminatedWord cterm=underline gui=underline
 let g:Illuminate_ftblacklist = ['nerdtree']
 let g:Illuminate_highlightUnderCursor = 0
+
+"" FZF.vim plugin settings
+command! -bang -nargs=* Search
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=? -complete=dir GFiles
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+
+nnoremap <space>/ :execute 'Search ' . input('Search string: ')<cr>
+nnoremap <C-p> :GFiles<cr>
 
 "" syntax highlight for jest
 autocmd BufReadPost,BufNewFile *test.js set filetype=jasmine.javascript syntax=jasmine.javascript
