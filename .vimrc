@@ -399,6 +399,11 @@ call jspretmpl#register_tag('gql', 'graphql')
 call jspretmpl#register_tag('html', 'html')
 autocmd FileType javascript,typescript JsPreTmpl
 
+"" Illuminate plugin settings
+hi illuminatedWord cterm=underline gui=underline
+let g:Illuminate_ftblacklist = ['nerdtree']
+let g:Illuminate_highlightUnderCursor = 0
+
 "" syntax highlight for jest
 autocmd BufReadPost,BufNewFile *test.js set filetype=jasmine.javascript syntax=jasmine.javascript
 autocmd BufReadPost,BufNewFile *test.ts set filetype=jasmine.typescript syntax=jasmine.typescript
