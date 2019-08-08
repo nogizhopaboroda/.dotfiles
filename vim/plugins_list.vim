@@ -75,3 +75,6 @@ NeoBundle 'glanotte/vim-jasmine'
 NeoBundle 'ryanoasis/vim-devicons'
 NeoBundle 'w0rp/ale'
 NeoBundle 'tmux-plugins/vim-tmux-focus-events'
+
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
