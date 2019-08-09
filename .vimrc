@@ -369,7 +369,6 @@ call jspretmpl#register_tag('html', 'html')
 autocmd FileType javascript,typescript JsPreTmpl
 
 "" Illuminate plugin settings
-hi illuminatedWord cterm=underline gui=underline
 let g:Illuminate_ftblacklist = ['nerdtree']
 let g:Illuminate_highlightUnderCursor = 0
 
