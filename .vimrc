@@ -177,6 +177,9 @@ nmap <silent> <Leader>f :call ToggleNerdTree()<CR>
 autocmd FileType javascript,json,typescript nmap <buffer> <C-w>gf <Plug>NodeGotoFile
 autocmd FileType javascript,json,typescript nmap <buffer> gf <Plug>NodeTabGotoFile
 
+nmap gD :ALEGoToDefinitionInTab<CR>
+
+
 "" PLUGINS SETTINGS
 "" ----------------
 
