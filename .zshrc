@@ -77,3 +77,5 @@ alias cat="ccat --color='always'"
 alias tt="translate -S"
 
 alias sha256="openssl dgst -sha256"
+
+alias whereiam="curl 'http://ip-api.com/json/`curl http://ipinfo.io/ip`?lang=en&fields=country,city,as,query' | jsn"
