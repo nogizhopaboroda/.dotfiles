@@ -55,6 +55,12 @@ function sg(){
   open $LINK
 }
 
+function whereami(){
+  ip=$(curl http://ipinfo.io/ip)
+  ipinfo=$(curl "http://ip-api.com/json/$ip?lang=en&fields=country,city,as,query" | jsn)
+  echo $ipinfo
+}
+
 
 #aliases
 alias pbr="git br"
@@ -77,5 +83,3 @@ alias cat="ccat --color='always'"
 alias tt="translate -S"
 
 alias sha256="openssl dgst -sha256"
-
-alias whereami="curl 'http://ip-api.com/json/`curl http://ipinfo.io/ip`?lang=en&fields=country,city,as,query' | jsn"
