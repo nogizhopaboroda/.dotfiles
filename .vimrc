@@ -192,6 +192,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let NERDTreeShowHidden=1 ""show hidden files
 
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+
 "" NERDTree Git
 let g:NERDTreeIndicatorMapCustom = {
 \ "Modified"  : "~",
