@@ -24,6 +24,9 @@ set noswapfile
 "" Autoreload files on change
 set autoread
 
+"" Terminal style tabs in gui
+set guioptions-=e
+
 "" file types
 au BufNewFile,BufRead *.tpl.html set filetype=html.underscore_template
 au BufNewFile,BufRead *.es6.html set filetype=html.js
@@ -367,7 +370,7 @@ let g:indexed_search_numbered_only = 1
 let g:casetrate_leader = '\t'
 
 "" Taboo plugin format
-let g:taboo_tab_format = "%P/%f %m"
+let g:taboo_tab_format = '%P/%f %m'
 
 "" Vim tagged template highlight plugin
 call jspretmpl#register_tag('gql', 'graphql')
