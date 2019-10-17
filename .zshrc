@@ -59,8 +59,8 @@ function sg(){
 #aliases
 alias pbr="git br"
 alias cbr="pbr | tr -d '\n' | pbcopy; echo 'branch name copied to clipboard'"
-alias pick-commit="git log --pretty=format:'%H %s' | pick | grep -o '^\S*' | tr -d '\n'"
-alias pick-branch="git branch | pick | tr -d ' '"
+alias pick-commit="git log --pretty=format:'%H %s' | fzf | grep -o '^\S*' | tr -d '\n'"
+alias pick-branch="git branch | fzf"
 
 alias jsn="python -mjson.tool"
 alias jsnp="python -c \"import sys; jsonp=sys.stdin.read(); print(jsonp[ jsonp.index('(') + 1 : jsonp.rindex(')') ])\" | jsn"
