@@ -38,7 +38,7 @@ NeoBundle 'prettier/vim-prettier', {
 NeoBundle 'ramitos/jsctags'
 NeoBundle 't9md/vim-surround_custom_mapping'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'mhinz/vim-signify'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'jtratner/vim-flavored-markdown'
 NeoBundle 'nginx.vim'

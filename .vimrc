@@ -186,8 +186,15 @@ nmap gD :ALEGoToDefinitionInTab<CR>
 "" PLUGINS SETTINGS
 "" ----------------
 
-"" GitGutter
-set updatetime=500
+"" Signify
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = '-'
+let g:signify_sign_delete_first_line = '‾'
+let g:signify_sign_change            = '~'
+let g:signify_sign_changedelete      = g:signify_sign_change
+"" Remove gutter background
+highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
+
 
 "" NERDTree
 autocmd StdinReadPre * let s:std_in=1
