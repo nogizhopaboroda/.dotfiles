@@ -125,11 +125,20 @@ function ToggleVerticalLine()
   endif
 endfunction
 
-function ToggleNerdTree()
-  if g:NERDTree.IsOpen()
-    NERDTreeClose
+let s:netrwTreesMap = {}
+function ToggleFilesTree()
+  let tabIndex = tabpagenr()
+  let tabMap = get(s:netrwTreesMap, tabIndex, {})
+  if get(tabMap, 'opened')
+      exe 'bd' . get(tabMap, 'bufIndex')
+      let s:netrwTreesMap[tabIndex]['opened'] = 0
   else
-    exec 'NERDTree ' . g:cwd | wincmd p | NERDTreeFind
+      let fname = GetPath('%:t', "false", "false")
+      silent Vexplore
+      call search(fname, 'wc')
+      let s:netrwTreesMap[tabIndex] = {}
+      let s:netrwTreesMap[tabIndex]['opened'] = 1
+      let s:netrwTreesMap[tabIndex]['bufIndex'] = bufnr('%')
   endif
 endfunction
 
@@ -174,7 +183,7 @@ inoremap b <C-o>b
 nmap <silent> <leader>v :call ToggleVerticalLine()<CR>
 
   "" toggle nerd tree
-nmap <silent> <Leader>f :call ToggleNerdTree()<CR>
+nmap <silent> <Leader>f :call ToggleFilesTree()<CR>
 
 
 autocmd FileType javascript,json,typescript nmap <buffer> <C-w>gf <Plug>NodeGotoFile
@@ -197,27 +206,40 @@ highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 
 "" NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-let NERDTreeShowHidden=1 ""show hidden files
+" let NERDTreeShowHidden=1 ""show hidden files
 
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+" let g:NERDTreeDirArrowExpandable = ''
+" let g:NERDTreeDirArrowCollapsible = ''
 
-"" NERDTree Git
-let g:NERDTreeIndicatorMapCustom = {
-\ "Modified"  : "~",
-\ "Staged"    : "✚",
-\ "Untracked" : "+",
-\ "Renamed"   : "➜",
-\ "Dirty"     : "~",
-\ "Unmerged"  : "═",
-\ "Deleted"   : "-",
-\ "Clean"     : "✔︎",
-\ 'Ignored'   : '☒',
-\ "Unknown"   : "?"
-\ }
+" "" NERDTree Git
+" let g:NERDTreeIndicatorMapCustom = {
+" \ "Modified"  : "~",
+" \ "Staged"    : "✚",
+" \ "Untracked" : "+",
+" \ "Renamed"   : "➜",
+" \ "Dirty"     : "~",
+" \ "Unmerged"  : "═",
+" \ "Deleted"   : "-",
+" \ "Clean"     : "✔︎",
+" \ 'Ignored'   : '☒',
+" \ "Unknown"   : "?"
+" \ }
+
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+let g:netrw_liststyle = 3
+let g:netrw_mousemaps = 0
+
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Explore | endif
+
+autocmd FileType netrw call s:netrw_settings()
+function! s:netrw_settings() abort
+  NetrwKeepj let s:treedepthstring="  "
+endfunction
+
 
 
 "" NERDCommenter

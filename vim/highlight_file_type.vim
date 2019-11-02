@@ -7,14 +7,15 @@ if filereadable(glob("~/.dotfiles/vim/convert_color.vim"))
   source ~/.dotfiles/vim/convert_color.vim
 endif
 
+
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-  exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+  exec 'syn match netrw_' . a:extension .' "\(\S\+ \)*\S\+\.' . a:extension .'\>" contains=netrwTreeBar,@NoSpell'
+  exec 'hi netrw_' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
 endfunction
 
 function! NERDTreeHighlightDirectory(directory, fg, bg, guifg, guibg)
-  exec 'autocmd FileType nerdtree highlight ' . a:directory . ' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-  exec 'autocmd FileType nerdtree syn match ' . a:directory . ' #'. a:directory .'/$#  containedin=NERDTreeDir'
+  exec 'syn match netrw_' . a:directory . ' #'. a:directory .'/#  containedin=netrwDir'
+  exec 'highlight netrw_' . a:directory . ' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
 endfunction
 
 
@@ -42,10 +43,6 @@ let s:files_colors = {
   \ 'gitignore' : '#6c6c6c'
 \}
 
-for [key, val] in items(s:files_colors)
-  call NERDTreeHighlightFile(key, RGB(val), 'none', val, 'NONE')
-endfor
-
 let s:directories_colors = {
   \'node_modules'	: '#6c6c6c',
   \'vendor'		: '#6c6c6c',
@@ -61,6 +58,15 @@ let s:directories_colors = {
   \'tests'		: '#00875f'
 \}
 
-for [key, val] in items(s:directories_colors)
-  call NERDTreeHighlightDirectory(key, RGB(val), 'none', val, 'NONE')
-endfor
+
+
+autocmd FileType netrw call s:netrw_settings()
+function! s:netrw_settings() abort
+  for [key, val] in items(s:files_colors)
+    call NERDTreeHighlightFile(key, RGB(val), 'none', val, 'NONE')
+  endfor
+
+  for [key, val] in items(s:directories_colors)
+    call NERDTreeHighlightDirectory(key, RGB(val), 'none', val, 'NONE')
+  endfor
+endfunction
