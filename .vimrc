@@ -196,13 +196,18 @@ nmap gD :ALEGoToDefinitionInTab<CR>
 "" ----------------
 
 "" Signify
-let g:signify_sign_add               = '+'
-let g:signify_sign_delete            = '-'
-let g:signify_sign_delete_first_line = '‾'
-let g:signify_sign_change            = '~'
-let g:signify_sign_changedelete      = g:signify_sign_change
+let g:signify_sign_add               = '▍'
+let g:signify_sign_delete            = '▍'
+let g:signify_sign_delete_first_line = '▔'
+let g:signify_sign_change            = '▍'
+let g:signify_sign_changedelete      = '▀'
 "" Remove gutter background
 highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
+
+exe "highlight SignifySignAdd    ctermbg=NONE ctermfg=".RGB('#05aff7')." guifg=#05aff7 cterm=NONE gui=NONE"
+exe "highlight SignifySignDelete ctermbg=NONE ctermfg=".RGB('#ed4337')." guifg=#ed4337 cterm=NONE gui=NONE"
+exe "highlight SignifySignDeleteFirstLine ctermbg=NONE ctermfg=".RGB('#ed4337')." guifg=#ed4337 cterm=NONE gui=NONE"
+exe "highlight SignifySignChange ctermbg=NONE ctermfg=".RGB('#fcba03')." guifg=#fcba03 cterm=NONE gui=NONE"
 
 
 "" NERDTree
