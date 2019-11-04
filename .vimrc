@@ -279,6 +279,7 @@ let g:airline_theme           = 'powerlineish'
 let g:airline#extensions#whitespace#enabled = 0 "disable whitespace plugin
 
 let g:airline_section_y = ''
+let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
 
 call airline#parts#define('directory', {
           \ 'raw': '%{GetPath("%:p:h", "true", "false")}/',
