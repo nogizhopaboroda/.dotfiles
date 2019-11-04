@@ -208,8 +208,8 @@ let g:signify_sign_changedelete      = '▍'
 highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
 exe "highlight SignifySignAdd    ctermbg=NONE ctermfg=".RGB('#05aff7')." guifg=#05aff7 cterm=NONE gui=NONE"
-exe "highlight SignifySignDelete ctermbg=NONE ctermfg=".RGB('#ed4337')." guifg=#ed4337 cterm=NONE gui=NONE"
-exe "highlight SignifySignDeleteFirstLine ctermbg=NONE ctermfg=".RGB('#ed4337')." guifg=#ed4337 cterm=NONE gui=NONE"
+exe "highlight SignifySignDelete ctermbg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
+exe "highlight SignifySignDeleteFirstLine ctermbg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
 exe "highlight SignifySignChange ctermbg=NONE ctermfg=".RGB('#fcba03')." guifg=#fcba03 cterm=NONE gui=NONE"
 
 
