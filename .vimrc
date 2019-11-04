@@ -234,9 +234,11 @@ exe "highlight SignifySignChange ctermbg=NONE ctermfg=".RGB('#fcba03')." guifg=#
 " \ }
 
 let g:netrw_banner = 0
-let g:netrw_winsize = 25
+let g:netrw_winsize = 75
 let g:netrw_liststyle = 3
 let g:netrw_mousemaps = 0
+let g:netrw_alto = 1
+let g:netrw_altv = 1
 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Explore | endif
 
