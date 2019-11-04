@@ -133,9 +133,12 @@ function ToggleFilesTree()
       exe 'bd' . get(tabMap, 'bufIndex')
       let s:netrwTreesMap[tabIndex]['opened'] = 0
   else
-      let fname = GetPath('%:t', "false", "false")
+      let fname = GetPath('%:p', "true", "false")
+      let chunks = split(fname, '/')
       silent Vexplore
-      call search(fname, 'wc')
+      for chunk in chunks
+        call search(chunk, 'wc')
+      endfor
       let s:netrwTreesMap[tabIndex] = {}
       let s:netrwTreesMap[tabIndex]['opened'] = 1
       let s:netrwTreesMap[tabIndex]['bufIndex'] = bufnr('%')
