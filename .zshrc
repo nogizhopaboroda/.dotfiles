@@ -59,6 +59,9 @@ function sg(){
 #aliases
 alias pbr="git br"
 alias cbr="pbr | tr -d '\n' | pbcopy; echo 'branch name copied to clipboard'"
+
+alias pwdc="pwd | tr -d '\n' | pbcopy"
+
 alias pick-commit="git log --pretty=format:'%H %s' | fzf | grep -o '^\S*' | tr -d '\n'"
 alias pick-branch="git branch | fzf"
 
