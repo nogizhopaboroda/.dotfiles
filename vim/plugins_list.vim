@@ -76,4 +76,4 @@ NeoBundle 'tmux-plugins/vim-tmux-focus-events'
 
 NeoBundle 'junegunn/fzf'
 NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'troydm/easytree.vim'

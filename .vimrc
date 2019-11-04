@@ -125,25 +125,25 @@ function ToggleVerticalLine()
   endif
 endfunction
 
-let s:netrwTreesMap = {}
-function ToggleFilesTree()
-  let tabIndex = tabpagenr()
-  let tabMap = get(s:netrwTreesMap, tabIndex, {})
-  if get(tabMap, 'opened')
-      exe 'bd' . get(tabMap, 'bufIndex')
-      let s:netrwTreesMap[tabIndex]['opened'] = 0
-  else
-      let fname = GetPath('%:p', "true", "false")
-      let chunks = split(fname, '/')
-      silent Vexplore
-      for chunk in chunks
-        call search(chunk, 'wc')
-      endfor
-      let s:netrwTreesMap[tabIndex] = {}
-      let s:netrwTreesMap[tabIndex]['opened'] = 1
-      let s:netrwTreesMap[tabIndex]['bufIndex'] = bufnr('%')
-  endif
-endfunction
+" let s:netrwTreesMap = {}
+" function ToggleFilesTree()
+  " let tabIndex = tabpagenr()
+  " let tabMap = get(s:netrwTreesMap, tabIndex, {})
+  " if get(tabMap, 'opened')
+      " exe 'bd' . get(tabMap, 'bufIndex')
+      " let s:netrwTreesMap[tabIndex]['opened'] = 0
+  " else
+      " let fname = GetPath('%:p', "true", "false")
+      " let chunks = split(fname, '/')
+      " silent Vexplore
+      " for chunk in chunks
+        " call search(chunk, 'wc')
+      " endfor
+      " let s:netrwTreesMap[tabIndex] = {}
+      " let s:netrwTreesMap[tabIndex]['opened'] = 1
+      " let s:netrwTreesMap[tabIndex]['bufIndex'] = bufnr('%')
+  " endif
+" endfunction
 
 function SetFontSize( size )
   let &guifont = substitute(&guifont, ':h\d\+$', ':h'.a:size, '')
@@ -186,7 +186,7 @@ inoremap b <C-o>b
 nmap <silent> <leader>v :call ToggleVerticalLine()<CR>
 
   "" toggle nerd tree
-nmap <silent> <Leader>f :call ToggleFilesTree()<CR>
+nmap <silent> <Leader>f :EasyTreeToggle<CR>
 
 
 autocmd FileType javascript,json,typescript nmap <buffer> <C-w>gf <Plug>NodeGotoFile
@@ -236,19 +236,9 @@ exe "highlight SignifySignChange ctermbg=NONE ctermfg=".RGB('#fcba03')." guifg=#
 " \ "Unknown"   : "?"
 " \ }
 
-let g:netrw_banner = 0
-let g:netrw_winsize = 25
-let g:netrw_liststyle = 3
-let g:netrw_mousemaps = 0
-let g:netrw_alto = 1
-let g:netrw_altv = 1
+let g:easytree_show_hidden_files = 1
 
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Explore | endif
-
-autocmd FileType netrw call s:netrw_settings()
-function! s:netrw_settings() abort
-  NetrwKeepj let s:treedepthstring="  "
-endfunction
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe 'EasyTreeHere' | endif
 
 
 

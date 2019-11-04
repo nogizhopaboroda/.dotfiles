@@ -9,13 +9,13 @@ endif
 
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-  exec 'syn match netrw_' . a:extension .' "\(\S\+ \)*\S\+\.' . a:extension .'\>" contains=netrwTreeBar,@NoSpell'
-  exec 'hi netrw_' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'syn match file_' . a:extension .' "\(\S\+ \)*\S\+\.' . a:extension .'\>" containedin=EasyTreeFile'
+  exec 'hi file_' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
 endfunction
 
 function! NERDTreeHighlightDirectory(directory, fg, bg, guifg, guibg)
-  exec 'syn match netrw_' . a:directory . ' #'. a:directory .'/#  containedin=netrwDir'
-  exec 'highlight netrw_' . a:directory . ' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'syn match directory_' . a:directory . ' /'. a:directory .'/  containedin=EasyTreeDir'
+  exec 'highlight directory_' . a:directory . ' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
 endfunction
 
 
@@ -60,7 +60,7 @@ let s:directories_colors = {
 
 
 
-autocmd FileType netrw call s:netrw_settings()
+autocmd FileType easytree call s:netrw_settings()
 function! s:netrw_settings() abort
   for [key, val] in items(s:files_colors)
     call NERDTreeHighlightFile(key, RGB(val), 'none', val, 'NONE')
