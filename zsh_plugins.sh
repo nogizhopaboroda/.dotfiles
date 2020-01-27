@@ -8,6 +8,7 @@ zplug "plugins/terraform", from:oh-my-zsh
 zplug "themes/robbyrussell", from:oh-my-zsh
 
 zplug "lukechilds/zsh-nvm"
+zplug "greymd/docker-zsh-completion"
 
 zplug "nogizhopaboroda/multitran_cli", as:command, use:translate
 zplug "k4rthik/git-cal", as:command
