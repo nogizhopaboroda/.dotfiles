@@ -20,8 +20,8 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 
 #zsh keybindings
-bindkey "^[[1;3D" backward-word
-bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" vi-backward-blank-word-end
+bindkey "^[[1;3C" vi-forward-blank-word-end
 bindkey "^[r"     clear-screen
 
 
