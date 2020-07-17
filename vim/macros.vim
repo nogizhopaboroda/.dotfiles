@@ -1,12 +1,9 @@
-autocmd Filetype javascript call ApplyJsMacros()
+autocmd Filetype javascript,typescript call ApplyJsMacros()
 function ApplyJsMacros()
-  map mf afunction(){}ki
-  map mF omf
-  map mc oif(){}k3li
-  map mC oif(){} else {}2k3li
+  map mf i() => {}i
+  map mF o() => {}ki
   map md odebugger;
   map ml oconsole.log();hi
-  map mr ovar  = require('');^4li
 endfunction
 
 autocmd Filetype html call ApplyHtmlMacros()
