@@ -1,8 +1,3 @@
-"" commands
-"" :Gitv - opens gitv plugin
-"" :Git <command> - shows git command results in new split pane
-
-
 let s:this_dir = expand("<sfile>:h")
 
 function ImportFile( filename )
@@ -14,73 +9,15 @@ function ImportFile( filename )
   endif
 endfunction
 
-let g:cwd = getcwd()
 
+call ImportFile('vim/general_settings.vim')
+call ImportFile('vim/helpers.vim')
 call ImportFile('vim/convert_color.vim')
-
-set autochdir
-set noswapfile
-
-"" Autoreload files on change
-set autoread
-
-"" Terminal style tabs in gui
-set guioptions-=e
-
-"" indentation
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-
-au FileType php,python setl sw=4 sts=4 et
-
-"" fix backspace problem in cli vim
-set backspace=2
-
-"" enable mouse
-set mouse=a
-
-"" colors
-set t_Co=256
-syntax enable
-
-"" remove background in terminal
-hi! Normal ctermbg=NONE
-hi! NonText ctermbg=NONE
+call ImportFile('vim/plugins.vim')
+call ImportFile('vim/highlight_file_type.vim')
+call ImportFile('vim/macros.vim')
 
 
-"" vertical bar cursor shape in insert mode
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-"" font
-set guifont=HackNerdFontComplete-Regular:h11
-
-set cursorline "" highlight current line
-
-"" set case insensitive search as default
-set ic
-
-"" search highlighting
-set hls
-  "" unhighlight
-map <silent> <C-Bslash> :noh<CR>
-
-
-"" fuzzy search
-set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip,*/.sass-cache/*,*/public_html/*,*/public/*
-"" commenter
-filetype plugin on
-
-
-set laststatus=2   " Always show the statusline
-"" numbers
-set relativenumber
-set number
-
-" "" not sure if i still need it
-" inoremap jj <esc>
-" noremap jj <esc>
 
 "" copy to system clipboard
 vnoremap <M-c> "+y
@@ -100,38 +37,6 @@ nmap <C-a> 0
 imap <C-a> <C-o>0
 
 
-
-"" my commands
-function GetPath( format, relative, print_line )
-  let path = expand(a:format)
-  if a:relative == "true"
-    let path = substitute(path, g:cwd . "/\\?", "", "")
-  endif
-  if a:print_line == "true"
-    let path = path . ":" . line(".")
-  endif
-  return path
-endfunction
-
-function CopyAndPrintPath( format, relative, print_line )
-  let path = GetPath( a:format, a:relative, a:print_line )
-  call system('pbcopy', path)
-  echo path
-  echo 'Copied to clipboard'
-  return path
-endfunction
-
-function ToggleVerticalLine()
-  if &cursorcolumn == 0
-    set cursorcolumn
-  else
-    set nocursorcolumn
-  endif
-endfunction
-
-function SetFontSize( size )
-  let &guifont = substitute(&guifont, ':h\d\+$', ':h'.a:size, '')
-endfunction
 
 cnoreabbrev fp call CopyAndPrintPath('%:p', "true", "false")
 cnoreabbrev fpl call CopyAndPrintPath('%:p', "true", "true")
@@ -168,16 +73,3 @@ inoremap b <C-o>b
 
   "" show/hide vertical line
 nmap <silent> <leader>v :call ToggleVerticalLine()<CR>
-
-
-
-
-call ImportFile('vim/plugins.vim')
-
-
-"" highlight files by type
-call ImportFile('vim/highlight_file_type.vim')
-
-
-"" macros
-call ImportFile('vim/macros.vim')

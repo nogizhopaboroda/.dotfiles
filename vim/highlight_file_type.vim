@@ -3,11 +3,6 @@
 "" :XtermColorTable - shows color table
 
 
-if filereadable(glob("~/.dotfiles/vim/convert_color.vim"))
-  source ~/.dotfiles/vim/convert_color.vim
-endif
-
-
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
   exec 'syn match file_' . a:extension .' "\(\S\+ \)*\S\+\.' . a:extension .'\>" containedin=EasyTreeFile'
   exec 'hi file_' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
