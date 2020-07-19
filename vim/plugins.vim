@@ -231,6 +231,9 @@ function s:setupPlugins(installed)
     nmap <silent> gr <Plug>(coc-references)
 
     nmap <leader>p  :CocCommand prettier.formatFile<cr>
+
+    exe "hi CocErrorSign  ctermfg=".RGB('#FF5252')." guifg=#FF5252"
+
   endif
 
 
