@@ -12,10 +12,11 @@ function s:setupPlugins(installed)
 ""Interface
 
   ""Theme
-  Plug 'altercation/vim-colors-solarized'
+  Plug 'lifepillar/vim-solarized8'
   if isSetup
     set background=dark
-    colorscheme solarized
+    colorscheme solarized8
+    let g:solarized_termtrans = 1
   endif
 
   ""Status line
@@ -174,9 +175,6 @@ function s:setupPlugins(installed)
   ""Highlight whitespaces
   Plug 'ntpeters/vim-better-whitespace'
 
-  ""Highlight colors
-  Plug 'lilydjwg/colorizer'
-
   ""Highlight uses of the current word under the cursor
   Plug 'RRethy/vim-illuminate'
   if isSetup
@@ -224,6 +222,7 @@ function s:setupPlugins(installed)
       \ 'coc-eslint',
       \ 'coc-tsserver',
       \ 'coc-html',
+      \ 'coc-highlight',
       \ 'coc-prettier'
     \]
 

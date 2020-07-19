@@ -24,6 +24,8 @@ set mouse=a
 set t_Co=256
 syntax enable
 
+set termguicolors
+
 "" remove background in terminal
 hi! Normal ctermbg=NONE
 hi! NonText ctermbg=NONE
