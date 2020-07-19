@@ -216,16 +216,23 @@ function s:setupPlugins(installed)
 
 
 ""Linting/Formatting
-  Plug 'w0rp/ale'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   if isSetup
-    nmap gD :ALEGoToDefinitionInTab<CR>
-  endif
+    let g:coc_config_home = '~/.dotfiles/vim'
+    let g:coc_global_extensions = [
+      \ 'coc-json',
+      \ 'coc-eslint',
+      \ 'coc-tsserver',
+      \ 'coc-html',
+      \ 'coc-prettier'
+    \]
 
-  Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install',
-    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-  Plug 'majutsushi/tagbar'
-  Plug 'ramitos/jsctags'
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gr <Plug>(coc-references)
+
+    nmap <leader>p  :CocCommand prettier.formatFile<cr>
+  endif
 
 
 ""Editing
