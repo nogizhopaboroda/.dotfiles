@@ -143,15 +143,6 @@ function s:setupPlugins(installed)
       let g:indexed_search_numbered_only = 1
     endif
 
-  ""Files tree
-  Plug 'troydm/easytree.vim'
-  if isSetup
-    let g:easytree_show_hidden_files = 1
-
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | exe 'EasyTreeHere' | endif
-    nmap <silent> <Leader>f :EasyTreeToggle<CR>
-  endif
-
   ""Rainbow brackets
   Plug 'luochen1990/rainbow'
   if isSetup
@@ -179,6 +170,36 @@ function s:setupPlugins(installed)
   Plug 'RRethy/vim-illuminate'
   if isSetup
     let g:Illuminate_highlightUnderCursor = 0
+  endif
+
+
+""Linting/Formatting
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  if isSetup
+    let g:coc_config_home = '~/.dotfiles/vim'
+    let g:coc_global_extensions = [
+      \ 'coc-json',
+      \ 'coc-html',
+      \ 'coc-eslint',
+      \ 'coc-tsserver',
+      \ 'coc-prettier',
+      \ 'coc-highlight',
+      \ 'coc-explorer',
+    \]
+
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gr <Plug>(coc-references)
+
+    nmap <leader>p  :CocCommand prettier.formatFile<cr>
+
+    exe "hi CocErrorSign  ctermfg=".RGB('#FF5252')." guifg=#FF5252"
+
+    let g:loaded_netrw = 1
+    nmap <silent> <Leader>f :CocCommand explorer<CR>
+    autocmd VimEnter * if !argc() | exe 'CocCommand explorer' | endif
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) | exe 'CocCommand explorer ' . g:cwd | endif
+
   endif
 
 
@@ -212,29 +233,6 @@ function s:setupPlugins(installed)
     nnoremap <leader>% :MtaJumpToOtherTag<cr>
   endif
 
-
-""Linting/Formatting
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  if isSetup
-    let g:coc_config_home = '~/.dotfiles/vim'
-    let g:coc_global_extensions = [
-      \ 'coc-json',
-      \ 'coc-eslint',
-      \ 'coc-tsserver',
-      \ 'coc-html',
-      \ 'coc-highlight',
-      \ 'coc-prettier'
-    \]
-
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gr <Plug>(coc-references)
-
-    nmap <leader>p  :CocCommand prettier.formatFile<cr>
-
-    exe "hi CocErrorSign  ctermfg=".RGB('#FF5252')." guifg=#FF5252"
-
-  endif
 
 
 ""Editing
