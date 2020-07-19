@@ -1,3 +1,11 @@
+""Get current directory
+if argc() != 0 && isdirectory(argv()[0])
+  let g:cwd = argv()[0]
+else
+  let g:cwd = getcwd()
+endif
+
+
 let s:this_dir = expand("<sfile>:h")
 
 function ImportFile( filename )

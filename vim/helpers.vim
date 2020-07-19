@@ -1,5 +1,3 @@
-let g:cwd = getcwd()
-
 "" my commands
 function GetPath( format, relative, print_line )
   let path = expand(a:format)
