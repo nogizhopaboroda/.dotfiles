@@ -185,39 +185,16 @@ function s:setupPlugins(installed)
 
 
 ""Syntax
+  Plug 'sheerun/vim-polyglot'
 
-  Plug 'xsbeats/vim-blade'
-  if isSetup
-    au BufNewFile,BufRead *.blade.php set filetype=blade.html
-  endif
-
-  Plug 'jtratner/vim-flavored-markdown'
-  if isSetup
-    augroup markdown
-          au!
-          au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-    augroup END
-  endif
-
-  Plug 'hashivim/vim-terraform'
-  if isSetup
-    autocmd FileType terraform setlocal commentstring=#%s
-  endif
-
-  Plug 'fatih/vim-go'
-
-  Plug 'jelera/vim-javascript-syntax'
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'jparise/vim-graphql'
 
   Plug 'Quramy/vim-js-pretty-template'
   if isSetup
     call jspretmpl#register_tag('gql', 'graphql')
     call jspretmpl#register_tag('html', 'html')
+    call jspretmpl#register_tag('css', 'css')
     autocmd FileType javascript,typescript JsPreTmpl
   endif
-
-  Plug 'leafgarland/typescript-vim'
 
   Plug 'glanotte/vim-jasmine'
   if isSetup
@@ -225,29 +202,17 @@ function s:setupPlugins(installed)
     autocmd BufReadPost,BufNewFile *test.ts set filetype=jasmine.typescript syntax=jasmine.typescript
   endif
 
-  Plug 'hail2u/vim-css3-syntax'
-  if isSetup
-    augroup VimCSS3Syntax
-             autocmd!
-             autocmd FileType css setlocal iskeyword+=-
-    augroup END
-  endif
-
-  Plug 'rpbaltazar/vim-lodash-highlight'
-
   Plug 'FabioAntunes/vim-node'
   if isSetup
     autocmd FileType javascript,json,typescript nmap <buffer> <C-w>gf <Plug>NodeGotoFile
     autocmd FileType javascript,json,typescript nmap <buffer> gf <Plug>NodeTabGotoFile
   endif
 
+
   Plug 'Valloric/MatchTagAlways'
   if isSetup
     nnoremap <leader>% :MtaJumpToOtherTag<cr>
   endif
-
-  Plug 'wavded/vim-stylus'
-  Plug 'aaronj1335/underscore-templates.vim'
 
 
 ""Linting/Formatting
