@@ -180,6 +180,7 @@ function s:setupPlugins(installed)
     let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-html',
+      \ 'coc-styled-components',
       \ 'coc-vimlsp',
       \ 'coc-eslint',
       \ 'coc-tsserver',
