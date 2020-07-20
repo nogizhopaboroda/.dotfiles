@@ -186,6 +186,7 @@ function s:setupPlugins(installed)
       \ 'coc-prettier',
       \ 'coc-highlight',
       \ 'coc-explorer',
+      \ 'coc-pairs',
     \]
 
     nmap <silent> gd <Plug>(coc-definition)
@@ -200,6 +201,8 @@ function s:setupPlugins(installed)
     nmap <silent> <Leader>f :CocCommand explorer<CR>
     autocmd VimEnter * if !argc() | exe 'CocCommand explorer' | endif
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) | exe 'CocCommand explorer ' . g:cwd | endif
+
+    autocmd FileType markdown let b:coc_pairs_disabled = ['`']
 
   endif
 
@@ -276,7 +279,6 @@ function s:setupPlugins(installed)
   Plug 'tpope/vim-repeat'
 
   Plug 'benjifisher/matchit.zip'
-  Plug 'Raimondi/delimitMate'
 
 
   ""Git
