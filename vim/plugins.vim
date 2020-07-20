@@ -183,6 +183,7 @@ function s:setupPlugins(installed)
       \ 'coc-styled-components',
       \ 'coc-vimlsp',
       \ 'coc-sh',
+      \ 'coc-docker',
       \ 'coc-eslint',
       \ 'coc-tsserver',
       \ 'coc-prettier',
