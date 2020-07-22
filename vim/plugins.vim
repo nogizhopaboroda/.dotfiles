@@ -163,6 +163,9 @@ function s:setupPlugins(installed)
     let g:rainbow_active = 1
   endif
 
+  ""Multiple cursors
+  Plug 'terryma/vim-multiple-cursors'
+
   ""Highlight whitespaces
   Plug 'ntpeters/vim-better-whitespace'
 
