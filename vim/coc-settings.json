@@ -4,5 +4,14 @@
   "diagnostic.warningSign": "!",
   "explorer.file.showHiddenFiles": true,
   "explorer.previewAction.onHover": false,
-  "explorer.icon.enableNerdfont": true
+  "explorer.icon.enableNerdfont": true,
+  "explorer.keyMappings": {
+    "<cr>": [
+     "expandable?",
+      ["expanded?", "collapse", "expand"],
+      "open"
+    ],
+    ">": ["expandable?", "cd", "open"],
+    "<": "gotoParent"
+  }
 }
