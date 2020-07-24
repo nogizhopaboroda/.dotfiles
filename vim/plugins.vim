@@ -187,6 +187,7 @@ function s:setupPlugins(installed)
       \ 'coc-vimlsp',
       \ 'coc-sh',
       \ 'coc-docker',
+      \ 'coc-go',
       \ 'coc-eslint',
       \ 'coc-tsserver',
       \ 'coc-prettier',
