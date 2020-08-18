@@ -86,24 +86,6 @@ function s:setupPlugins(installed)
           \ }
   endif
 
-  ""Gutter
-  Plug 'mhinz/vim-signify'
-  if isSetup
-    let g:signify_sign_add               = '▍'
-    let g:signify_sign_delete            = '▍'
-    let g:signify_sign_delete_first_line = '▔'
-    let g:signify_sign_change            = '▍'
-    let g:signify_sign_changedelete      = '▍'
-
-    "" Remove gutter background
-    highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
-    ""Change sign colors
-    exe "highlight SignifySignAdd    ctermbg=NONE ctermfg=".RGB('#05aff7')." guifg=#05aff7 cterm=NONE gui=NONE"
-    exe "highlight SignifySignDelete ctermbg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
-    exe "highlight SignifySignDeleteFirstLine ctermbg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
-    exe "highlight SignifySignChange ctermbg=NONE ctermfg=".RGB('#fcba03')." guifg=#fcba03 cterm=NONE gui=NONE"
-  endif
-
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 
@@ -194,6 +176,7 @@ function s:setupPlugins(installed)
       \ 'coc-highlight',
       \ 'coc-explorer',
       \ 'coc-pairs',
+      \ 'coc-git',
     \]
 
     nmap <silent> gd <Plug>(coc-definition)
@@ -210,6 +193,15 @@ function s:setupPlugins(installed)
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) | exe 'CocCommand explorer ' . g:cwd | endif
 
     autocmd FileType markdown let b:coc_pairs_disabled = ['`']
+
+    exe "highlight DiffAdd ctermbg=NONE guibg=NONE ctermfg=".RGB('#05aff7')." guifg=#05aff7 cterm=NONE gui=NONE"
+    exe "highlight DiffDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
+    exe "highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
+    exe "highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=".RGB('#fcba03')." guifg=#fcba03 cterm=NONE gui=NONE"
+    exe "highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#FF9800')." guifg=#FF9800 cterm=NONE gui=NONE"
+
+    nmap [c <Plug>(coc-git-prevchunk)
+    nmap ]c <Plug>(coc-git-nextchunk)
 
   endif
 

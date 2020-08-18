@@ -13,5 +13,16 @@
     ],
     ">": ["expandable?", "cd", "open"],
     "<": "gotoParent"
-  }
+  },
+  "git.realtimeGutters": false,
+  "git.addedSign.text": "▍",
+  "git.addedSign.hlGroup": "DiffAdd",
+  "git.removedSign.text": "▍",
+  "git.removedSign.hlGroup": "DiffDelete",
+  "git.topRemovedSign.text": "▔",
+  "git.topRemovedSign.hlGroup": "DiffTopDelete",
+  "git.changedSign.text": "▍",
+  "git.changedSign.hlGroup": "DiffChange",
+  "git.changeRemovedSign.text": "▞",
+  "git.changeRemovedSign.hlGroup": "DiffChangeDelete"
 }
