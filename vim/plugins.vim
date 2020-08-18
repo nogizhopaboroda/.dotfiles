@@ -42,6 +42,8 @@ function s:setupPlugins(installed)
     let g:airline_section_y = ''
     let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
 
+    let g:airline_section_b = airline#section#create(['%{get(g:,"coc_git_status","")}', '%{get(b:,"coc_git_status","")}'])
+
     call airline#parts#define('directory', {
               \ 'raw': '%{GetPath("%:p:h", "true", "false")}/',
               \ 'accent': 'gray',

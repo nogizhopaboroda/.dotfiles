@@ -14,6 +14,7 @@
     ">": ["expandable?", "cd", "open"],
     "<": "gotoParent"
   },
+  "git.stagedDecorator": "^",
   "git.realtimeGutters": false,
   "git.addedSign.text": "▍",
   "git.addedSign.hlGroup": "DiffAdd",
