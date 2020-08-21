@@ -157,6 +157,11 @@ function s:setupPlugins(installed)
 
   ""Multiple cursors
   Plug 'mg979/vim-visual-multi'
+  if isSetup
+    let g:VM_maps = {}
+    let g:VM_maps['Select l'] = ''
+    let g:VM_maps['Select h'] = ''
+  endif
 
   ""Highlight whitespaces
   Plug 'ntpeters/vim-better-whitespace'
