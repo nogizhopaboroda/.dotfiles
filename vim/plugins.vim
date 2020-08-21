@@ -102,19 +102,27 @@ function s:setupPlugins(installed)
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     if isSetup
-      command! -bang -nargs=* Search
-        \ call fzf#vim#grep(
-        \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-        \   <bang>0 ? fzf#vim#with_preview('up:60%')
-        \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-        \   <bang>0)
+
+      let s:fzfViewOptions = ['--cycle', '--info=inline']
 
       command! -bang -nargs=? -complete=dir Files
-        \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
+        \ call fzf#vim#files(<q-args>, {'options': s:fzfViewOptions + ['--preview', 'cat {}']}, <bang>0)
 
       command! -bang -nargs=? -complete=dir GFiles
-        \ call fzf#vim#gitfiles(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
+        \ call fzf#vim#gitfiles(<q-args>, {'options': s:fzfViewOptions + ['--preview', 'cat {}']}, <bang>0)
 
+
+      function! RipgrepFzf(query, preview)
+        let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s'
+        let initial_command = printf(command_fmt, fzf#shellescape(a:query))
+        let spec = {'options': s:fzfViewOptions, 'dir': g:cwd}
+        call fzf#vim#grep(
+          \ initial_command, 1,
+          \   a:preview ? fzf#vim#with_preview(spec, 'up:60%')
+          \             : fzf#vim#with_preview(spec, 'right:50%:hidden', '?'),
+          \ a:preview)
+      endfunction
+      command! -nargs=* -bang Search call RipgrepFzf(<q-args>, <bang>0)
 
       nnoremap <space>/ :execute 'Search ' . input('Search string: ')<cr>
       nnoremap <C-p> :GFiles<cr>
