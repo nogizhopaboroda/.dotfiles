@@ -201,6 +201,12 @@ function s:setupPlugins(installed)
     nmap <silent> gy <Plug>(coc-type-definition)
     nmap <silent> gr <Plug>(coc-references)
 
+    nmap [l <Plug>(coc-diagnostic-prev)
+    nmap ]l <Plug>(coc-diagnostic-next)
+
+    nmap [c <Plug>(coc-git-prevchunk)
+    nmap ]c <Plug>(coc-git-nextchunk)
+
     nmap <leader>p  :CocCommand prettier.formatFile<cr>
 
     exe "hi CocErrorSign  ctermfg=".RGB('#FF5252')." guifg=#FF5252"
@@ -217,9 +223,6 @@ function s:setupPlugins(installed)
     exe "highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
     exe "highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=".RGB('#fcba03')." guifg=#fcba03 cterm=NONE gui=NONE"
     exe "highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#FF9800')." guifg=#FF9800 cterm=NONE gui=NONE"
-
-    nmap [c <Plug>(coc-git-prevchunk)
-    nmap ]c <Plug>(coc-git-nextchunk)
 
   endif
 
