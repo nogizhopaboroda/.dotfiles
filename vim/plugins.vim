@@ -19,73 +19,75 @@ function s:setupPlugins(installed)
     let g:solarized_termtrans = 1
   endif
 
-  ""Status line
-  Plug 'powerline/fonts'
   Plug 'ryanoasis/vim-devicons'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'bling/vim-airline'
+
+  ""Status line
+  Plug 'itchyny/lightline.vim'
   if isSetup
-  "" add red accent
-    function! AirlineThemePatch(palette)
-      let a:palette.accents.bold_red = [  '#ff0000' , '' , RGB('#ff0000') , '', 'bold'   ]
-      let a:palette.accents.gray = [  '#444444' , '' , RGB('#444444') , '', ''   ]
+    let g:lightline = {
+      \ 'component': {
+      \   'lineinfo': '%3p%% %3l/%{line("$")}:%-2c',
+      \   'filename': '%#StatusDirectoryColor# %{GetPath("%:p:h", "true", "false")}/%#NormalColor#%t ',
+      \   'modified': '%#ChangedSignColor#%{&modifiable && &modified ? "[+]" : ""} ',
+      \   'git_status': '%#GitStatusColor# %{get(g:,"coc_git_status","")} %{get(b:,"coc_git_status","")}',
+      \   'linter_status':
+      \     '%#LinterErrorsCountColor#%{GetLinterStatus("error", " E:")}' .
+      \     '%#LinterWarningsCountColor#%{GetLinterStatus("warning", " W:")}' .
+      \     '%#LinterInfoCountColor#%{GetLinterStatus("information", "  I:")}'
+      \ },
+      \ 'component_type': { 'filename': 'raw', 'modified': 'raw', 'git_status': 'raw', 'linter_status': 'raw' },
+      \ 'active': {
+      \   'left': [ [ 'mode' ],
+      \             [ 'git_status' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo', 'linter_status' ],
+      \              [ 'filetype' ] ]
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+    \ }
+
+    function! GetLinterStatus(type, prefix) abort
+      let info = get(b:, 'coc_diagnostic_info', {})
+      if empty(info) | return '' | endif
+      if get(info, a:type, 0)
+        return a:prefix . info[a:type] . ' '
+      endif
+      return ''
     endfunction
-    let g:airline_theme_patch_func = 'AirlineThemePatch'
-    call airline#highlighter#add_accent('bold_red')
-    call airline#highlighter#add_accent('gray')
 
-    let g:airline_powerline_fonts = 1
-    let g:airline_theme           = 'powerlineish'
+    let g:lightline.colorscheme = 'powerlineish'
+    let g:lightline.mode_map = {
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 's'  : 'S',
+      \ 'V' : 'V-LINE',
+      \ "\<C-v>": 'V-BLOCK',
+      \ 'S' : 'S-LINE',
+      \ "\<C-s>": 'S-BLOCK',
+      \ 't': 'TERMINAL',
+    \ }
 
-    let g:airline#extensions#whitespace#enabled = 0 "disable whitespace plugin
-
-    let g:airline_section_y = ''
-    let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
-
-    let g:airline_section_b = airline#section#create(['%{get(g:,"coc_git_status","")}', '%{get(b:,"coc_git_status","")}'])
-
-    call airline#parts#define('directory', {
-              \ 'raw': '%{GetPath("%:p:h", "true", "false")}/',
-              \ 'accent': 'gray',
-              \ })
-    call airline#parts#define('file', {
-              \ 'raw': '%f '
-              \ })
-    call airline#parts#define('change_sign', {
-              \ 'raw': '%m',
-              \ 'accent': 'red',
-              \ })
-    call airline#parts#define('readonly', {
-              \ 'raw': '%{airline#util#wrap(airline#parts#readonly(),0)}',
-              \ 'accent': 'red',
-              \ })
-
-    let g:airline_section_c = airline#section#create(['directory', 'file', 'change_sign', 'readonly'])
-
-    let g:airline#extensions#hunks#non_zero_only = 1
-
-    " vim-powerline symbols
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
-    endif
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_symbols.linenr = ''
-    let g:airline_symbols.branch = '⎇'
-    let g:airline_symbols.paste = 'ρ'
-    let g:airline_symbols.whitespace = 'Ξ'
-
-    let g:airline_mode_map = {
-          \ '__' : '-',
-          \ 'n'  : 'N',
-          \ 'i'  : 'I',
-          \ 'R'  : 'R',
-          \ 'c'  : 'C',
-          \ 'v'  : 'V',
-          \ 'V'  : 'V',
-          \ 's'  : 'S',
-          \ 'S'  : 'S',
-          \ }
+    let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+    let s:right_colors = s:palette.normal.right
+    let s:middle_colors = s:palette.normal.middle[0]
+    exe printf('hi StatusDirectoryColor ctermfg=%d guifg=%s ctermbg=%d guibg=%s',
+      \ RGB('#444444'), '#444444', s:middle_colors[3], s:middle_colors[1])
+    exe printf('hi NormalColor ctermfg=%d guifg=%s ctermbg=%d guibg=%s',
+      \ s:middle_colors[2], s:middle_colors[0], s:middle_colors[3], s:middle_colors[1])
+    exe printf('hi ChangedSignColor ctermfg=%d guifg=%s ctermbg=%d guibg=%s',
+      \ RGB('#ff0000'), '#ff0000', s:middle_colors[3], s:middle_colors[1])
+    exe printf('hi GitStatusColor ctermfg=%d guifg=%s ctermbg=%d guibg=%s',
+      \ s:right_colors[0][2], s:right_colors[0][0], s:right_colors[0][3], s:right_colors[0][1])
+    exe printf('hi LinterErrorsCountColor ctermfg=%d guifg=%s ctermbg=%d guibg=%s',
+      \ RGB('#000000'), '#000000', RGB('#ff0000'), '#ff0000')
+    exe printf('hi LinterWarningsCountColor ctermfg=%d guifg=%s ctermbg=%d guibg=%s',
+      \ RGB('#000000'), '#000000', RGB('#fcba03'), '#fcba03')
+    exe printf('hi LinterInfoCountColor ctermfg=%d guifg=%s ctermbg=%d guibg=%s',
+      \ RGB('#ffffff'), '#ffffff', RGB('#05a9f5'), '#05a9f5')
   endif
 
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
