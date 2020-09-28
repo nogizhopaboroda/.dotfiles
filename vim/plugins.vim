@@ -101,7 +101,7 @@ function s:setupPlugins(installed)
 
   ""Search
     ""Project search
-    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     if isSetup
 
