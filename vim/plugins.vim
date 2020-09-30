@@ -32,7 +32,7 @@ function s:setupPlugins(installed)
       \   'git_status': '%#GitStatusColor# %{get(g:,"coc_git_status","")} %{get(b:,"coc_git_status","")}',
       \   'linter_status':
       \     '%#LinterErrorsCountColor#%{GetLinterStatus("error", " E:")}' .
-      \     '%#LinterWarningsCountColor#%{GetLinterStatus("warning", " W:")}' .
+      \     '%#LinterWarningsCountColor#%{GetLinterStatus("warning", "  W:")}' .
       \     '%#LinterInfoCountColor#%{GetLinterStatus("information", "  I:")}'
       \ },
       \ 'component_type': { 'filename': 'raw', 'modified': 'raw', 'git_status': 'raw', 'linter_status': 'raw' },
