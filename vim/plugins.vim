@@ -312,6 +312,9 @@ function s:setupPlugins(installed)
   Plug 'guns/xterm-color-table.vim'
   Plug 'tmux-plugins/vim-tmux-focus-events'
 
+  ""Markdown preview
+  Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'}
+
 endfunction
 
 
