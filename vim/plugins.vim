@@ -313,7 +313,7 @@ function s:setupPlugins(installed)
   Plug 'tmux-plugins/vim-tmux-focus-events'
 
   ""Markdown preview
-  Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'}
+  " Plug 'npxbr/glow.nvim', {'do': ':GlowInstall'}
 
 endfunction
 
