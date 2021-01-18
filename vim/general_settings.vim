@@ -1,4 +1,3 @@
-set autochdir
 set noswapfile
 
 "" Autoreload files on change
