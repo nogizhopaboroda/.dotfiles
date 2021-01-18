@@ -229,15 +229,12 @@ function s:setupPlugins(installed)
 
 ""Syntax
   Plug 'sheerun/vim-polyglot'
-
-
-  Plug 'Quramy/vim-js-pretty-template'
   if isSetup
-    call jspretmpl#register_tag('gql', 'graphql')
-    call jspretmpl#register_tag('html', 'html')
-    call jspretmpl#register_tag('css', 'css')
-    autocmd FileType javascript,typescript JsPreTmpl
+    autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+    autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
   endif
+
+  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
   Plug 'glanotte/vim-jasmine'
   if isSetup
