@@ -14,9 +14,9 @@ function s:setupPlugins(installed)
   ""Theme
   Plug 'lifepillar/vim-solarized8'
   if isSetup
-    set background=dark
-    colorscheme solarized8
     let g:solarized_termtrans = 1
+    colorscheme solarized8
+    set background=dark
   endif
 
   Plug 'ryanoasis/vim-devicons'
