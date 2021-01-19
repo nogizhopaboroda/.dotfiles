@@ -96,7 +96,17 @@ function s:setupPlugins(installed)
   ""Tabs
   Plug 'gcmt/taboo.vim'
   if isSetup
-    let g:taboo_tab_format = '%P/%f %m'
+    function ProcessPath(path)
+      let relative_path = substitute(a:path, g:cwd . "/\\?", "", "")
+      let path_segments = split(relative_path, "/")
+      if len(path_segments) > 1
+        let last_segments = path_segments[-2:-1]
+        return join(last_segments, "/")
+      else
+        return relative_path
+      endif
+    endfunction
+    let g:taboo_tab_format = '%{ProcessPath("%r")} %m'
   endif
 
   ""Search
