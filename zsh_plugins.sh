@@ -1,12 +1,6 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-zplug "ivaaaan/smug", \
-    as:command, \
-    from:gh-r, \
-    rename-to:smug, \
-    use:"*Darwin*x86_64*"
-
 zplug "romkatv/powerlevel10k", as:theme, depth:1, hook-load:"source $HERE/.p10k.zsh"
 zplug "robbyrussell/oh-my-zsh", use:"*.sh"
 
