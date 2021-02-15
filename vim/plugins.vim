@@ -246,12 +246,6 @@ function s:setupPlugins(installed)
 
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
-  Plug 'glanotte/vim-jasmine'
-  if isSetup
-    autocmd BufReadPost,BufNewFile *test.js set filetype=jasmine.javascript syntax=jasmine.javascript
-    autocmd BufReadPost,BufNewFile *test.ts set filetype=jasmine.typescript syntax=jasmine.typescript
-  endif
-
   Plug 'FabioAntunes/vim-node'
   if isSetup
     autocmd FileType javascript,json,typescript nmap <buffer> <C-w>gf <Plug>NodeGotoFile
