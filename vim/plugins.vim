@@ -184,6 +184,13 @@ function s:setupPlugins(installed)
     let g:Illuminate_highlightUnderCursor = 0
   endif
 
+  ""Show inline commit info
+  Plug 'tveskag/nvim-blame-line'
+  if isSetup
+    let g:blameLineVirtualTextFormat = '  // %s'
+    let g:blameLineGitFormat = '%h, %an, %ar, %s'
+  endif
+
 
 ""Linting/Formatting
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
