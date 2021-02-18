@@ -205,6 +205,7 @@ function s:setupPlugins(installed)
       \ 'coc-explorer',
       \ 'coc-pairs',
       \ 'coc-git',
+      \ 'coc-snippets',
     \]
 
     nmap <silent> gd <Plug>(coc-definition)
