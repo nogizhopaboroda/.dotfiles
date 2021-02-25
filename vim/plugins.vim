@@ -219,6 +219,8 @@ function s:setupPlugins(installed)
     nmap <silent> gy <Plug>(coc-type-definition)
     nmap <silent> gr <Plug>(coc-references)
 
+    nmap <leader>rn <Plug>(coc-rename)
+
     nmap [l <Plug>(coc-diagnostic-prev)
     nmap ]l <Plug>(coc-diagnostic-next)
 
