@@ -1,8 +1,8 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-zplug "romkatv/powerlevel10k", as:theme, depth:1, hook-load:"source $HERE/.p10k.zsh"
 zplug "robbyrussell/oh-my-zsh", use:"*.sh"
+zplug "themes/robbyrussell", from:oh-my-zsh
 
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/terraform", from:oh-my-zsh
