@@ -246,6 +246,7 @@ function s:setupPlugins(installed)
 
   endif
 
+  Plug 'honza/vim-snippets'
 
 ""Syntax
   Plug 'sheerun/vim-polyglot'

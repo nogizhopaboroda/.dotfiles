@@ -1,4 +1,5 @@
 {
+  "snippets.ultisnips.enable": false,
   "coc.preferences.jumpCommand": "tab drop",
   "html.autoClosingTags": true,
   "diagnostic.warningSign": "!",
