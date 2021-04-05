@@ -7,9 +7,7 @@ zplug "themes/robbyrussell", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/terraform", from:oh-my-zsh
 
-export NVM_LAZY_LOAD=true
 zplug "lukechilds/zsh-nvm"
-
 zplug "greymd/docker-zsh-completion"
 
 zplug "k4rthik/git-cal", as:command
