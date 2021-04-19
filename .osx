@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# taken from https://github.com/phillbaker/dotfiles/blob/master/.osx
+
+# Disable automatic period insertion on double-space
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
