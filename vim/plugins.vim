@@ -228,6 +228,7 @@ function s:setupPlugins(installed)
     nmap ]c <Plug>(coc-git-nextchunk)
 
     nmap <leader>p  :CocCommand prettier.formatFile<cr>
+    nmap <leader>st :call CocActionAsync('doHover')<cr>
 
     exe "hi CocErrorSign  ctermfg=".RGB('#FF5252')." guifg=#FF5252"
 
