@@ -192,60 +192,65 @@ function s:setupPlugins(installed)
   endif
 
 
-""Linting/Formatting
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'kabouzeid/nvim-lspinstall'
+  Plug 'neovim/nvim-lspconfig'
   if isSetup
-    let g:coc_config_home = '~/.dotfiles/vim'
-    let g:coc_global_extensions = [
-      \ 'coc-json',
-      \ 'coc-html',
-      \ 'coc-yaml',
-      \ 'coc-styled-components',
-      \ 'coc-vimlsp',
-      \ 'coc-sh',
-      \ 'coc-docker',
-      \ 'coc-go',
-      \ 'coc-eslint',
-      \ 'coc-tsserver',
-      \ 'coc-prettier',
-      \ 'coc-highlight',
-      \ 'coc-explorer',
-      \ 'coc-pairs',
-      \ 'coc-git',
-      \ 'coc-snippets',
-    \]
-
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gr <Plug>(coc-references)
-
-    nmap <leader>rn <Plug>(coc-rename)
-
-    nmap [l <Plug>(coc-diagnostic-prev)
-    nmap ]l <Plug>(coc-diagnostic-next)
-
-    nmap [c <Plug>(coc-git-prevchunk)
-    nmap ]c <Plug>(coc-git-nextchunk)
-
-    nmap <leader>p  :CocCommand prettier.formatFile<cr>
-    nmap <leader>st :call CocActionAsync('doHover')<cr>
-
-    exe "hi CocErrorSign  ctermfg=".RGB('#FF5252')." guifg=#FF5252"
-
-    let g:loaded_netrw = 1
-    nmap <silent> <Leader>f :CocCommand explorer<CR>
-    autocmd VimEnter * if !argc() | exe 'CocCommand explorer' | endif
-    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) | exe 'CocCommand explorer ' . g:cwd | endif
-
-    autocmd FileType markdown let b:coc_pairs_disabled = ['`']
-
-    exe "highlight DiffAdd ctermbg=NONE guibg=NONE ctermfg=".RGB('#05aff7')." guifg=#05aff7 cterm=NONE gui=NONE"
-    exe "highlight DiffDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
-    exe "highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
-    exe "highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=".RGB('#fcba03')." guifg=#fcba03 cterm=NONE gui=NONE"
-    exe "highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#FF9800')." guifg=#FF9800 cterm=NONE gui=NONE"
-
+    luafile ./vim/plugins.lua
   endif
+""Linting/Formatting
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " if isSetup
+    " let g:coc_config_home = '~/.dotfiles/vim'
+    " let g:coc_global_extensions = [
+      " \ 'coc-json',
+      " \ 'coc-html',
+      " \ 'coc-yaml',
+      " \ 'coc-styled-components',
+      " \ 'coc-vimlsp',
+      " \ 'coc-sh',
+      " \ 'coc-docker',
+      " \ 'coc-go',
+      " \ 'coc-eslint',
+      " \ 'coc-tsserver',
+      " \ 'coc-prettier',
+      " \ 'coc-highlight',
+      " \ 'coc-explorer',
+      " \ 'coc-pairs',
+      " \ 'coc-git',
+      " \ 'coc-snippets',
+    " \]
+
+    " nmap <silent> gd <Plug>(coc-definition)
+    " nmap <silent> gy <Plug>(coc-type-definition)
+    " nmap <silent> gr <Plug>(coc-references)
+
+    " nmap <leader>rn <Plug>(coc-rename)
+
+    " nmap [l <Plug>(coc-diagnostic-prev)
+    " nmap ]l <Plug>(coc-diagnostic-next)
+
+    " nmap [c <Plug>(coc-git-prevchunk)
+    " nmap ]c <Plug>(coc-git-nextchunk)
+
+    " nmap <leader>p  :CocCommand prettier.formatFile<cr>
+    " nmap <leader>st :call CocActionAsync('doHover')<cr>
+
+    " exe "hi CocErrorSign  ctermfg=".RGB('#FF5252')." guifg=#FF5252"
+
+    " let g:loaded_netrw = 1
+    " nmap <silent> <Leader>f :CocCommand explorer<CR>
+    " autocmd VimEnter * if !argc() | exe 'CocCommand explorer' | endif
+    " autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) | exe 'CocCommand explorer ' . g:cwd | endif
+
+    " autocmd FileType markdown let b:coc_pairs_disabled = ['`']
+
+    " exe "highlight DiffAdd ctermbg=NONE guibg=NONE ctermfg=".RGB('#05aff7')." guifg=#05aff7 cterm=NONE gui=NONE"
+    " exe "highlight DiffDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
+    " exe "highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#cb4b16')." guifg=#cb4b16 cterm=NONE gui=NONE"
+    " exe "highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=".RGB('#fcba03')." guifg=#fcba03 cterm=NONE gui=NONE"
+    " exe "highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=".RGB('#FF9800')." guifg=#FF9800 cterm=NONE gui=NONE"
+
+  " endif
 
   Plug 'honza/vim-snippets'
 
