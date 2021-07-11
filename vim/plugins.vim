@@ -10,7 +10,7 @@ function s:setupPlugins(installed)
   let isSetup = a:installed
 
   if isSetup
-    call ImportFile('vim/plugins.lua')
+    call ImportFile('nvim/plugins.lua')
   endif
 
 ""Interface

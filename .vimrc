@@ -6,10 +6,10 @@ else
 endif
 
 
-let s:this_dir = expand("<sfile>:h")
+let g:this_dir = expand("<sfile>:h")
 
 function ImportFile( filename )
-  let filePath = s:this_dir . '/' . a:filename
+  let filePath = g:this_dir . '/' . a:filename
   if filereadable(glob(filePath))
      execute "source " . filePath
   else
