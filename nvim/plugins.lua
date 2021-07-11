@@ -19,7 +19,7 @@ vim.api.nvim_exec([[
 
 local use = require('packer').use
 require('packer').startup(function()
-  use 'neovim/nvim-lspconfig'       -- Package manager
+  use {'neovim/nvim-lspconfig', run = 'cd ' .. this_dir .. '/nvim && yarn install'}
 
   use 'folke/lsp-colors.nvim'
   use 'hrsh7th/nvim-compe'           -- Autocompletion plugin
