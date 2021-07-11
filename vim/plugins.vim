@@ -9,6 +9,10 @@ endif
 function s:setupPlugins(installed)
   let isSetup = a:installed
 
+  if isSetup
+    call ImportFile('vim/plugins.lua')
+  endif
+
 ""Interface
 
   ""Theme
@@ -192,11 +196,6 @@ function s:setupPlugins(installed)
   endif
 
 
-  Plug 'kabouzeid/nvim-lspinstall'
-  Plug 'neovim/nvim-lspconfig'
-  if isSetup
-    luafile ./vim/plugins.lua
-  endif
 ""Linting/Formatting
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " if isSetup
