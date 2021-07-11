@@ -20,6 +20,8 @@ require('packer').startup(function()
   use 'kabouzeid/nvim-lspinstall'
 
   use 'folke/lsp-colors.nvim'
+  use 'hrsh7th/nvim-compe'           -- Autocompletion plugin
+
   -- use 'tpope/vim-fugitive'           -- Git commands in nvim
   -- use 'tpope/vim-rhubarb'            -- Fugitive-companion to interact with github
   -- use 'tpope/vim-commentary'         -- "gc" to comment visual regions/lines
@@ -32,8 +34,6 @@ require('packer').startup(function()
   -- use { 'lukas-reineke/indent-blankline.nvim', branch="lua" }
   -- -- Add git related info in the signs columns and popups
   -- use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
-  -- use 'neovim/nvim-lspconfig'        -- Collection of configurations for built-in LSP client
-  -- use 'hrsh7th/nvim-compe'           -- Autocompletion plugin
 end)
 
 
@@ -422,3 +422,38 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 vim.cmd 'autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()'
+
+-- use .ts snippets in .tsx files
+vim.g.vsnip_filetypes = {
+    typescriptreact = {"typescript"}
+}
+require"compe".setup {
+    preselect = "always",
+    source = {
+        path = true,
+        buffer = true,
+        vsnip = true,
+        nvim_lsp = true,
+        nvim_lua = true
+    }
+}
+local t = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+_G.tab_complete = function()
+    if vim.fn.pumvisible() == 1 then
+        return vim.fn["compe#confirm"]()
+    elseif vim.fn.call("vsnip#available", {1}) == 1 then
+        return t("<Plug>(vsnip-expand-or-jump)")
+    else
+        return t("<Tab>")
+    end
+end
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()",
+                        {expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm("<CR>")]],
+                        {expr = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close("<C-e>")]],
+                        {expr = true, silent = true})
