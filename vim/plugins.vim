@@ -15,14 +15,6 @@ function s:setupPlugins(installed)
 
 ""Interface
 
-  ""Theme
-  Plug 'lifepillar/vim-solarized8'
-  if isSetup
-    let g:solarized_termtrans = 1
-    colorscheme solarized8
-    set background=dark
-  endif
-
   Plug 'ryanoasis/vim-devicons'
 
   ""Status line

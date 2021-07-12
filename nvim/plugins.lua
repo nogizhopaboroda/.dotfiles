@@ -23,6 +23,7 @@ require('packer').startup(function()
 
   use 'folke/lsp-colors.nvim'
   use 'hrsh7th/nvim-compe'           -- Autocompletion plugin
+  use 'ishan9299/nvim-solarized-lua'
 
   -- use 'tpope/vim-fugitive'           -- Git commands in nvim
   -- use 'tpope/vim-rhubarb'            -- Fugitive-companion to interact with github
@@ -38,8 +39,11 @@ require('packer').startup(function()
   -- use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
 end)
 
+-- color scheme
+vim.g.solarized_termtrans = 1
+vim.g.solarized_italics = 1
+vim.cmd('colorscheme solarized')
 
-vim.cmd 'autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()'
 
 -- use .ts snippets in .tsx files
 vim.g.vsnip_filetypes = {
@@ -96,6 +100,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
    virtual_text = false,
  }
 )
+vim.cmd 'autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()'
+
+
 local nvim_lsp = require("lspconfig")
 local format_async = function(err, _, result, _, bufnr)
     if err ~= nil or result == nil then return end
