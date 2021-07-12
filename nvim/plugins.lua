@@ -25,6 +25,9 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-compe'           -- Autocompletion plugin
   use 'ishan9299/nvim-solarized-lua'
 
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
+
   -- use 'tpope/vim-fugitive'           -- Git commands in nvim
   -- use 'tpope/vim-rhubarb'            -- Fugitive-companion to interact with github
   -- use 'tpope/vim-commentary'         -- "gc" to comment visual regions/lines
@@ -43,6 +46,11 @@ end)
 vim.g.solarized_termtrans = 1
 vim.g.solarized_italics = 1
 vim.cmd('colorscheme solarized')
+
+-- files tree
+vim.api.nvim_set_var('nvim_tree_auto_open', 1)
+vim.api.nvim_set_var('nvim_tree_auto_close', 1)
+vim.api.nvim_set_var('nvim_tree_ignore', { '.git', 'node_modules', '.cache', 'dist' })
 
 
 -- use .ts snippets in .tsx files
