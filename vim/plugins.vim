@@ -9,10 +9,6 @@ endif
 function s:setupPlugins(installed)
   let isSetup = a:installed
 
-  if isSetup
-    call ImportFile('nvim/plugins.lua')
-  endif
-
 ""Interface
 
   Plug 'ryanoasis/vim-devicons'

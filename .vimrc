@@ -18,6 +18,7 @@ function ImportFile( filename )
 endfunction
 
 
+call ImportFile('nvim/plugins.lua')
 call ImportFile('vim/general_settings.vim')
 call ImportFile('vim/helpers.vim')
 call ImportFile('vim/convert_color.vim')
