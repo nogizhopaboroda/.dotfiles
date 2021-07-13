@@ -23,12 +23,58 @@ require('packer').startup(function()
 
   use {'neovim/nvim-lspconfig', run = 'cd ' .. this_dir .. '/nvim && yarn install'}
 
-  use 'folke/lsp-colors.nvim'
-  use 'hrsh7th/nvim-compe'           -- Autocompletion plugin
-  use 'ishan9299/nvim-solarized-lua'
+  -- Autocompletion plugin
+  use {'hrsh7th/nvim-compe', config = function()
+    -- use .ts snippets in .tsx files
+    vim.g.vsnip_filetypes = {
+        typescriptreact = {"typescript"}
+    }
+    require"compe".setup {
+        preselect = "always",
+        source = {
+            path = true,
+            buffer = true,
+            vsnip = true,
+            nvim_lsp = true,
+            nvim_lua = true
+        }
+    }
+    local t = function(str)
+        return vim.api.nvim_replace_termcodes(str, true, true, true)
+    end
+    _G.tab_complete = function()
+        if vim.fn.pumvisible() == 1 then
+            return vim.fn["compe#confirm"]()
+        elseif vim.fn.call("vsnip#available", {1}) == 1 then
+            return t("<Plug>(vsnip-expand-or-jump)")
+        else
+            return t("<Tab>")
+        end
+    end
+    vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+    vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+    vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()",
+                            {expr = true, silent = true})
+    vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm("<CR>")]],
+                            {expr = true, silent = true})
+    vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close("<C-e>")]],
+                            {expr = true, silent = true})
+  end}
+
+  -- color scheme
+  use {'ishan9299/nvim-solarized-lua', config = function()
+    vim.g.solarized_termtrans = 1
+    vim.g.solarized_italics = 1
+    vim.cmd('colorscheme solarized')
+  end}
 
   use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  -- files tree
+  use {'kyazdani42/nvim-tree.lua', config = function()
+    vim.api.nvim_set_var('nvim_tree_auto_open', 1)
+    vim.api.nvim_set_var('nvim_tree_auto_close', 1)
+    vim.api.nvim_set_var('nvim_tree_ignore', { '.git', 'node_modules', '.cache', 'dist' })
+  end}
 
   -- Post-install/update hook with neovim command
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -37,7 +83,24 @@ require('packer').startup(function()
     'lewis6991/gitsigns.nvim',
     requires = {
       'nvim-lua/plenary.nvim'
-    }
+    },
+    config = function()
+      require('gitsigns').setup {
+        signs = {
+          add          = {hl = 'DiffAdd'   , text = '▍'},
+          change       = {hl = 'DiffChange', text = '▍'},
+          delete       = {hl = 'DiffDelete', text = '▁'},
+          topdelete    = {hl = 'DiffDelete', text = '▔'},
+          changedelete = {hl = 'DiffChangeDelete', text = '▞'},
+        },
+      }
+
+      vim.cmd("highlight DiffAdd ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#05aff7')") .. " guifg=#05aff7 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#fcba03')") .. " guifg=#fcba03 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#ff9800')") .. " guifg=#ff9800 cterm=NONE gui=NONE")
+    end
   }
 
   -- use 'tpope/vim-fugitive'           -- Git commands in nvim
@@ -52,80 +115,12 @@ require('packer').startup(function()
   -- use { 'lukas-reineke/indent-blankline.nvim', branch="lua" }
 end)
 
--- color scheme
-vim.g.solarized_termtrans = 1
-vim.g.solarized_italics = 1
-vim.cmd('colorscheme solarized')
-
--- files tree
-vim.api.nvim_set_var('nvim_tree_auto_open', 1)
-vim.api.nvim_set_var('nvim_tree_auto_close', 1)
-vim.api.nvim_set_var('nvim_tree_ignore', { '.git', 'node_modules', '.cache', 'dist' })
-
--- gitsigns
-require('gitsigns').setup {
-  signs = {
-    add          = {hl = 'DiffAdd'   , text = '▍'},
-    change       = {hl = 'DiffChange', text = '▍'},
-    delete       = {hl = 'DiffDelete', text = '▁'},
-    topdelete    = {hl = 'DiffDelete', text = '▔'},
-    changedelete = {hl = 'DiffChangeDelete', text = '▞'},
-  },
-}
-
-vim.cmd("highlight DiffAdd ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#05aff7')") .. " guifg=#05aff7 cterm=NONE gui=NONE")
-vim.cmd("highlight DiffDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
-vim.cmd("highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
-vim.cmd("highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#fcba03')") .. " guifg=#fcba03 cterm=NONE gui=NONE")
-vim.cmd("highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#ff9800')") .. " guifg=#ff9800 cterm=NONE gui=NONE")
-
-
--- use .ts snippets in .tsx files
-vim.g.vsnip_filetypes = {
-    typescriptreact = {"typescript"}
-}
-require"compe".setup {
-    preselect = "always",
-    source = {
-        path = true,
-        buffer = true,
-        vsnip = true,
-        nvim_lsp = true,
-        nvim_lua = true
-    }
-}
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-_G.tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return vim.fn["compe#confirm"]()
-    elseif vim.fn.call("vsnip#available", {1}) == 1 then
-        return t("<Plug>(vsnip-expand-or-jump)")
-    else
-        return t("<Tab>")
-    end
-end
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()",
-                        {expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm("<CR>")]],
-                        {expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close("<C-e>")]],
-                        {expr = true, silent = true})
+-- automatically run :PackerCompile whenever this file is updated
+vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
 
 
 
 -- lsp
-
-require("lsp-colors").setup({
-  Error = "#db4b4b",
-  Warning = "#e0af68",
-  Information = "#0db9d7",
-  Hint = "#10B981"
-})
-
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  vim.lsp.diagnostic.on_publish_diagnostics, {
