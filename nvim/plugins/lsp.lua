@@ -72,6 +72,7 @@ if client.resolved_capabilities.document_formatting then
          ]], true)
     end
 end
+
 nvim_lsp.tsserver.setup {
     cmd = {this_dir .. '/nvim/node_modules/.bin/typescript-language-server', '--stdio'},
     on_attach = function(client)
@@ -79,7 +80,14 @@ nvim_lsp.tsserver.setup {
         on_attach(client)
     end
 }
+
+nvim_lsp.graphql.setup {
+    cmd = { this_dir .. '/nvim/node_modules/.bin/graphql-lsp', 'server', '-m', 'stream' },
+    filetypes = { 'typescript', 'javascript' }
+}
+
 local filetypes = {
+    javascript = "eslint",
     typescript = "eslint",
     typescriptreact = "eslint",
 }
@@ -106,9 +114,11 @@ local formatters = {
     prettier = {command = this_dir .. "/nvim/node_modules/.bin/prettier", args = {"--stdin-filepath", "%filepath"}}
 }
 local formatFiletypes = {
+    javascript = "prettier",
     typescript = "prettier",
     typescriptreact = "prettier"
 }
+
 nvim_lsp.diagnosticls.setup {
     cmd = {this_dir .. '/nvim/node_modules/.bin/diagnostic-languageserver', '--stdio'},
     on_attach = on_attach,
