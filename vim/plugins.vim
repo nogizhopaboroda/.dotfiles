@@ -103,34 +103,34 @@ function s:setupPlugins(installed)
 
   ""Search
     ""Project search
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    if isSetup
+    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    " Plug 'junegunn/fzf.vim'
+    " if isSetup
 
-      let s:fzfViewOptions = ['--cycle', '--info=inline']
+      " let s:fzfViewOptions = ['--cycle', '--info=inline']
 
-      command! -bang -nargs=? -complete=dir Files
-        \ call fzf#vim#files(<q-args>, {'options': s:fzfViewOptions + ['--preview', 'cat {}']}, <bang>0)
+      " command! -bang -nargs=? -complete=dir Files
+        " \ call fzf#vim#files(<q-args>, {'options': s:fzfViewOptions + ['--preview', 'cat {}']}, <bang>0)
 
-      command! -bang -nargs=? -complete=dir GFiles
-        \ call fzf#vim#gitfiles(<q-args>, {'options': s:fzfViewOptions + ['--preview', 'cat {}']}, <bang>0)
+      " command! -bang -nargs=? -complete=dir GFiles
+        " \ call fzf#vim#gitfiles(<q-args>, {'options': s:fzfViewOptions + ['--preview', 'cat {}']}, <bang>0)
 
 
-      function! RipgrepFzf(query, preview)
-        let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s'
-        let initial_command = printf(command_fmt, fzf#shellescape(a:query))
-        let spec = {'options': s:fzfViewOptions, 'dir': g:cwd}
-        call fzf#vim#grep(
-          \ initial_command, 1,
-          \   a:preview ? fzf#vim#with_preview(spec, 'up:60%')
-          \             : fzf#vim#with_preview(spec, 'right:50%:hidden', '?'),
-          \ a:preview)
-      endfunction
-      command! -nargs=* -bang Search call RipgrepFzf(<q-args>, <bang>0)
+      " function! RipgrepFzf(query, preview)
+        " let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s'
+        " let initial_command = printf(command_fmt, fzf#shellescape(a:query))
+        " let spec = {'options': s:fzfViewOptions, 'dir': g:cwd}
+        " call fzf#vim#grep(
+          " \ initial_command, 1,
+          " \   a:preview ? fzf#vim#with_preview(spec, 'up:60%')
+          " \             : fzf#vim#with_preview(spec, 'right:50%:hidden', '?'),
+          " \ a:preview)
+      " endfunction
+      " command! -nargs=* -bang Search call RipgrepFzf(<q-args>, <bang>0)
 
-      nnoremap <space>/ :execute 'Search ' . input('Search string: ')<cr>
-      nnoremap <C-p> :GFiles<cr>
-    endif
+      " nnoremap <space>/ :execute 'Search ' . input('Search string: ')<cr>
+      " nnoremap <C-p> :GFiles<cr>
+    " endif
     "
     ""File search
     Plug 'henrik/vim-indexed-search'

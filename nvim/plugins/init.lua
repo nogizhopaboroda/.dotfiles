@@ -79,9 +79,9 @@ require('packer').startup(function()
     vim.cmd('colorscheme gruvbox')
   end}
   use {'ishan9299/nvim-solarized-lua', config = function()
-    vim.g.solarized_termtrans = 1
-    vim.g.solarized_italics = 1
-    vim.cmd('colorscheme solarized')
+    -- vim.g.solarized_termtrans = 1
+    -- vim.g.solarized_italics = 1
+    -- vim.cmd('colorscheme solarized')
   end}
 
   use 'kyazdani42/nvim-web-devicons'
@@ -154,12 +154,31 @@ require('packer').startup(function()
     end
   }
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+    config = function()
+      vim.api.nvim_set_keymap('n', '<C-p>', ':lua require"telescope.builtin".find_files{}<cr>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<space>/', ':lua require"telescope.builtin".live_grep{}<cr>', { noremap = true, silent = true })
+      -- Global remapping
+      ------------------------------
+      require('telescope').setup{
+        defaults = {
+          mappings = {
+            i = {
+              ["<esc>"] = require('telescope.actions').close,
+            },
+          },
+        }
+      }
+    end
+  }
+
   -- use 'tpope/vim-fugitive'           -- Git commands in nvim
   -- use 'tpope/vim-rhubarb'            -- Fugitive-companion to interact with github
   -- use 'tpope/vim-commentary'         -- "gc" to comment visual regions/lines
   -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- -- UI to select things (files, grep results, open buffers...)
-  -- use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   -- use 'joshdick/onedark.vim'         -- Theme inspired by Atom
   -- use 'itchyny/lightline.vim'        -- Fancier statusline
   -- -- Add indentation guides even on blank lines
