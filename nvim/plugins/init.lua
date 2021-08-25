@@ -128,8 +128,6 @@ require('packer').startup(function()
     }
   end}
 
-  -- Post-install/update hook with neovim command
-
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
@@ -173,6 +171,9 @@ require('packer').startup(function()
       }
     end
   }
+
+  -- go to github
+  use 'ruanyl/vim-gh-line'
 
   -- use 'tpope/vim-fugitive'           -- Git commands in nvim
   -- use 'tpope/vim-rhubarb'            -- Fugitive-companion to interact with github
