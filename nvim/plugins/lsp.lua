@@ -86,7 +86,12 @@ nvim_lsp.graphql.setup {
     filetypes = { 'typescript', 'javascript' }
 }
 
+nvim_lsp.jsonls.setup {
+    cmd = { this_dir .. '/nvim/node_modules/.bin/vscode-json-languageserver', '--stdio' },
+}
+
 local filetypes = {
+    json = "eslint",
     javascript = "eslint",
     typescript = "eslint",
     typescriptreact = "eslint",
@@ -114,6 +119,7 @@ local formatters = {
     prettier = {command = this_dir .. "/nvim/node_modules/.bin/prettier", args = {"--stdin-filepath", "%filepath"}}
 }
 local formatFiletypes = {
+    json = "prettier",
     javascript = "prettier",
     typescript = "prettier",
     typescriptreact = "prettier"
