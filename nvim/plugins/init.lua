@@ -15,6 +15,17 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
+  -- color scheme
+  use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}, config = function()
+    vim.cmd('colorscheme gruvbox')
+  end}
+
+  -- use {'ishan9299/nvim-solarized-lua', config = function()
+    -- vim.g.solarized_termtrans = 1
+    -- vim.g.solarized_italics = 1
+    -- vim.cmd('colorscheme solarized')
+  -- end}
+
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
     require('nvim-treesitter.configs').setup {
       ensure_installed = "maintained",
@@ -74,16 +85,6 @@ require('packer').startup(function()
     require('nvim-autopairs').setup()
   end}
 
-  -- color scheme
-  use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}, config = function()
-    vim.cmd('colorscheme gruvbox')
-  end}
-  use {'ishan9299/nvim-solarized-lua', config = function()
-    -- vim.g.solarized_termtrans = 1
-    -- vim.g.solarized_italics = 1
-    -- vim.cmd('colorscheme solarized')
-  end}
-
   use 'kyazdani42/nvim-web-devicons'
   -- files tree
   use {'kyazdani42/nvim-tree.lua', config = function()
@@ -133,6 +134,7 @@ require('packer').startup(function()
     requires = {
       'nvim-lua/plenary.nvim'
     },
+    after = 'gruvbox.nvim',
     config = function()
       require('gitsigns').setup {
         signs = {
