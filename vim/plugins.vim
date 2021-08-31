@@ -131,13 +131,6 @@ function s:setupPlugins(installed)
       " nnoremap <space>/ :execute 'Search ' . input('Search string: ')<cr>
       " nnoremap <C-p> :GFiles<cr>
     " endif
-    "
-    ""File search
-    Plug 'henrik/vim-indexed-search'
-    if isSetup
-      let g:indexed_search_shortmess = 1
-      let g:indexed_search_numbered_only = 1
-    endif
 
   ""Rainbow brackets
   Plug 'luochen1990/rainbow'
