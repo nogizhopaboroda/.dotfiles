@@ -1,2 +1,4 @@
 global-database $HOME/.todo
+database-loaders binary,xml
 global
+
