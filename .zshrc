@@ -1,5 +1,7 @@
 HERE=`dirname "$0"`
 
+export TODORC=$HERE/.todorc
+
 BREW_WORKSPACE=${BREW_WORKSPACE:-'default'}
 BREWFILE_PATH=$HERE/Brewfile.$BREW_WORKSPACE
 
