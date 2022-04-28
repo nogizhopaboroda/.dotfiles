@@ -102,30 +102,30 @@ require('packer').startup(function()
     vim.cmd([[nmap <silent> <leader>f :NvimTreeToggle<CR>]])
   end}
 
-  -- use {
-    -- 'lewis6991/gitsigns.nvim',
-    -- requires = {
-      -- 'nvim-lua/plenary.nvim'
-    -- },
-    -- after = 'gruvbox.nvim',
-    -- config = function()
-      -- require('gitsigns').setup {
-        -- signs = {
-          -- add          = {hl = 'DiffAdd'   , text = '▍'},
-          -- change       = {hl = 'DiffChange', text = '▍'},
-          -- delete       = {hl = 'DiffDelete', text = '▁'},
-          -- topdelete    = {hl = 'DiffDelete', text = '▔'},
-          -- changedelete = {hl = 'DiffChangeDelete', text = '▞'},
-        -- },
-      -- }
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    after = 'gruvbox.nvim',
+    config = function()
+      require('gitsigns').setup {
+        signs = {
+          add          = {hl = 'DiffAdd'   , text = '▍'},
+          change       = {hl = 'DiffChange', text = '▍'},
+          delete       = {hl = 'DiffDelete', text = '▁'},
+          topdelete    = {hl = 'DiffDelete', text = '▔'},
+          changedelete = {hl = 'DiffChangeDelete', text = '▞'},
+        },
+      }
 
-      -- vim.cmd("highlight DiffAdd ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#05aff7')") .. " guifg=#05aff7 cterm=NONE gui=NONE")
-      -- vim.cmd("highlight DiffDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
-      -- vim.cmd("highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
-      -- vim.cmd("highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#fcba03')") .. " guifg=#fcba03 cterm=NONE gui=NONE")
-      -- vim.cmd("highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#ff9800')") .. " guifg=#ff9800 cterm=NONE gui=NONE")
-    -- end
-  -- }
+      vim.cmd("highlight DiffAdd ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#05aff7')") .. " guifg=#05aff7 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#fcba03')") .. " guifg=#fcba03 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#ff9800')") .. " guifg=#ff9800 cterm=NONE gui=NONE")
+    end
+  }
 
   -- use {
     -- 'nvim-telescope/telescope.nvim',
