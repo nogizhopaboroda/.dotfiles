@@ -19,11 +19,11 @@ endfunction
 
 
 call ImportFile('vim/general_settings.vim')
-call ImportFile('vim/helpers.vim')
-call ImportFile('vim/convert_color.vim')
-call ImportFile('vim/plugins.vim')
-call ImportFile('vim/highlight_file_type.vim')
-call ImportFile('vim/macros.vim')
+" call ImportFile('vim/helpers.vim')
+" call ImportFile('vim/convert_color.vim')
+" call ImportFile('vim/plugins.vim')
+" call ImportFile('vim/highlight_file_type.vim')
+" call ImportFile('vim/macros.vim')
 
 lua package.path = package.path .. ";" .. vim.api.nvim_get_var('this_dir') .. "/nvim/?.lua"
 lua require('init')
