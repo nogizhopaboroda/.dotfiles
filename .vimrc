@@ -19,7 +19,7 @@ endfunction
 
 
 call ImportFile('vim/general_settings.vim')
-" call ImportFile('vim/helpers.vim')
+call ImportFile('vim/helpers.vim')
 " call ImportFile('vim/convert_color.vim')
 " call ImportFile('vim/plugins.vim')
 " call ImportFile('vim/highlight_file_type.vim')
