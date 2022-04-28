@@ -1,4 +1,3 @@
-print('loading plugins')
 local this_dir = vim.api.nvim_get_var('this_dir')
 
 -- Install packer
@@ -44,7 +43,7 @@ require('packer').startup(function()
     require("nvim-lsp-installer").setup {}
     require('plugins.lsp')
   end}
-        
+
   -- Autocompletion plugin
   -- use {'hrsh7th/nvim-compe', config = function()
     -- -- use .ts snippets in .tsx files
@@ -127,25 +126,25 @@ require('packer').startup(function()
     end
   }
 
-  -- use {
-    -- 'nvim-telescope/telescope.nvim',
-    -- requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-    -- config = function()
-      -- vim.api.nvim_set_keymap('n', '<C-p>', ':lua require"telescope.builtin".find_files{}<cr>', { noremap = true, silent = true })
-      -- vim.api.nvim_set_keymap('n', '<space>/', ':lua require"telescope.builtin".live_grep{}<cr>', { noremap = true, silent = true })
-      -- -- Global remapping
-      -- ------------------------------
-      -- require('telescope').setup{
-        -- defaults = {
-          -- mappings = {
-            -- i = {
-              -- ["<esc>"] = require('telescope.actions').close,
-            -- },
-          -- },
-        -- }
-      -- }
-    -- end
-  -- }
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+    config = function()
+      vim.api.nvim_set_keymap('n', '<C-p>', ':lua require"telescope.builtin".find_files{}<cr>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<space>/', ':lua require"telescope.builtin".live_grep{}<cr>', { noremap = true, silent = true })
+      -- Global remapping
+      ------------------------------
+      require('telescope').setup{
+        defaults = {
+          mappings = {
+            i = {
+              ["<esc>"] = require('telescope.actions').close,
+            },
+          },
+        }
+      }
+    end
+  }
 
   -- commenter plugin
   use {
