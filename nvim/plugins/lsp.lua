@@ -110,30 +110,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
    virtual_text = false,
  }
 )
--- vim.cmd 'autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()'
---
---
--- local format_async = function(err, _, result, _, bufnr)
---     if err ~= nil or result == nil then return end
---     if not vim.api.nvim_buf_get_option(bufnr, "modified") then
---         local view = vim.fn.winsaveview()
---         vim.lsp.util.apply_text_edits(result, bufnr)
---         vim.fn.winrestview(view)
---         if bufnr == vim.api.nvim_get_current_buf() then
---             vim.api.nvim_command("noautocmd :update")
---         end
---     end
--- end
---
--- vim.lsp.handlers["textDocument/formatting"] = format_async
--- _G.lsp_organize_imports = function()
---     local params = {
---         command = "_typescript.organizeImports",
---         arguments = {vim.api.nvim_buf_get_name(0)},
---         title = ""
---     }
---     vim.lsp.buf.execute_command(params)
--- end
-
-
-print('plugins config 7')
