@@ -6,7 +6,7 @@ local execute = vim.api.nvim_command
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '.. install_path)
+  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
 
@@ -15,14 +15,14 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- color scheme
-  use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}, config = function()
+  use { "npxbr/gruvbox.nvim", requires = { "rktjmp/lush.nvim" }, config = function()
     vim.cmd('colorscheme gruvbox')
-  end}
+  end }
 
   -- use {'ishan9299/nvim-solarized-lua', config = function()
-    -- vim.g.solarized_termtrans = 1
-    -- vim.g.solarized_italics = 1
-    -- vim.cmd('colorscheme solarized')
+  -- vim.g.solarized_termtrans = 1
+  -- vim.g.solarized_italics = 1
+  -- vim.cmd('colorscheme solarized')
   -- end}
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function()
@@ -32,19 +32,21 @@ require('packer').startup(function()
         enable = true,
       }
     }
-  end}
+  end }
 
   -- use {'neovim/nvim-lspconfig', run = 'cd ' .. this_dir .. '/nvim && yarn install', config = function()
   --   require('plugins.lsp')
   -- end}
-  use {'neovim/nvim-lspconfig', config = function()
-  end}
-  use {'jose-elias-alvarez/null-ls.nvim', config = function()
-  end}
-  use {'williamboman/nvim-lsp-installer', config = function()
+  use { 'neovim/nvim-lspconfig', config = function()
+  end }
+  use { 'jose-elias-alvarez/null-ls.nvim', config = function()
+  end }
+  use { 'jose-elias-alvarez/nvim-lsp-ts-utils', config = function()
+  end }
+  use { 'williamboman/nvim-lsp-installer', config = function()
     require("nvim-lsp-installer").setup {}
     require('plugins.lsp')
-  end}
+  end }
 
   -- Autocompletion plugin
   use { 'hrsh7th/nvim-compe', config = function()
@@ -88,20 +90,20 @@ require('packer').startup(function()
     vim.cmd([[inoremap <silent><expr> <CR> pumvisible() ? compe#confirm("<CR>") : "\<CR>"]])
   end }
 
-  use {'windwp/nvim-autopairs', config = function()
+  use { 'windwp/nvim-autopairs', config = function()
     require('nvim-autopairs').setup()
-  end}
+  end }
 
   -- use 'kyazdani42/nvim-web-devicons'
   -- files tree
-  use {'kyazdani42/nvim-tree.lua',
-  requires = {
+  use { 'kyazdani42/nvim-tree.lua',
+    requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
-  config = function()
-    require'nvim-tree'.setup {}
-    vim.cmd([[nmap <silent> <leader>f :NvimTreeToggle<CR>]])
-  end}
+    config = function()
+      require 'nvim-tree'.setup {}
+      vim.cmd([[nmap <silent> <leader>f :NvimTreeToggle<CR>]])
+    end }
 
   use {
     'lewis6991/gitsigns.nvim',
@@ -112,11 +114,11 @@ require('packer').startup(function()
     config = function()
       require('gitsigns').setup {
         signs = {
-          add          = {hl = 'DiffAdd'   , text = '▍'},
-          change       = {hl = 'DiffChange', text = '▍'},
-          delete       = {hl = 'DiffDelete', text = '▁'},
-          topdelete    = {hl = 'DiffDelete', text = '▔'},
-          changedelete = {hl = 'DiffChangeDelete', text = '▞'},
+          add          = { hl = 'DiffAdd', text = '▍' },
+          change       = { hl = 'DiffChange', text = '▍' },
+          delete       = { hl = 'DiffDelete', text = '▁' },
+          topdelete    = { hl = 'DiffDelete', text = '▔' },
+          changedelete = { hl = 'DiffChangeDelete', text = '▞' },
         },
       }
 
@@ -130,13 +132,13 @@ require('packer').startup(function()
 
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+    requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
     config = function()
       vim.api.nvim_set_keymap('n', '<C-p>', ':lua require"telescope.builtin".find_files{}<cr>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', '<space>/', ':lua require"telescope.builtin".live_grep{}<cr>', { noremap = true, silent = true })
       -- Global remapping
       ------------------------------
-      require('telescope').setup{
+      require('telescope').setup {
         defaults = {
           mappings = {
             i = {
@@ -152,7 +154,7 @@ require('packer').startup(function()
   use {
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
   }
 
@@ -165,25 +167,30 @@ require('packer').startup(function()
         options = {
           icons_enabled = true,
           theme = 'auto',
-          component_separators = { left = '', right = ''},
-          section_separators = { left = '', right = ''},
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
           disabled_filetypes = {},
           always_divide_middle = true,
           globalstatus = false,
         },
         sections = {
-          lualine_a = {'mode'},
-          lualine_b = {'branch', 'diff', 'diagnostics'},
-          lualine_c = {'filename'},
-          lualine_x = {'filetype'},
-          lualine_y = {'progress'},
-          lualine_z = {'location'}
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch', 'diff', 'diagnostics' },
+          -- lualine_c = {'filename'},
+          lualine_c = {
+            'filename',
+            -- file_status = true,
+            -- path = 1,
+          },
+          lualine_x = { 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
         },
         inactive_sections = {
           lualine_a = {},
           lualine_b = {},
-          lualine_c = {'filename'},
-          lualine_x = {'location'},
+          lualine_c = { 'filename' },
+          lualine_x = { 'location' },
           lualine_y = {},
           lualine_z = {}
         },
@@ -209,6 +216,3 @@ end)
 
 -- automatically run :PackerCompile whenever this file is updated
 vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
-
-
-
