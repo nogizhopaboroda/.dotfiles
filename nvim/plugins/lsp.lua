@@ -18,7 +18,7 @@ end
 
 
 local nvim_lsp = require("lspconfig")
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 vim.api.nvim_set_keymap('n', '<Leader>sd', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
   vim.cmd("command! LspDiagPrev lua vim.lsp.diagnostic.goto_prev()")
   vim.cmd("command! LspDiagNext lua vim.lsp.diagnostic.goto_next()")
   -- vim.cmd(
-      -- "command! LspDiagLine lua vim.lsp.diagnostic.open_float()")
+  -- "command! LspDiagLine lua vim.lsp.diagnostic.open_float()")
   vim.cmd("command! LspSignatureHelp lua vim.lsp.buf.signature_help()")
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -61,7 +61,11 @@ end
 local _, tsserver = lsp_installer.get_server('tsserver')
 tsserver:on_ready(function()
   nvim_lsp.tsserver.setup {
-    on_attach = on_attach
+    on_attach = function(client, bufnr)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+      on_attach(client, bufnr)
+    end,
   }
 end)
 
@@ -87,16 +91,26 @@ luaserver:on_ready(function()
   }
 end)
 
+local null_ls = require("null-ls")
+null_ls.setup({
+  sources = {
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.code_actions.eslint,
+    null_ls.builtins.formatting.prettier
+  },
+  on_attach = on_attach
+})
+
 
 
 -- lsp config
 local this_dir = vim.api.nvim_get_var('this_dir')
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
- vim.lsp.diagnostic.on_publish_diagnostics, {
-   -- Enable underline, use default values
-   underline = true,
-   -- Enable virtual text only on Warning or above, override spacing to 2
-   virtual_text = false,
- }
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+  -- Enable underline, use default values
+  underline = true,
+  -- Enable virtual text only on Warning or above, override spacing to 2
+  virtual_text = false,
+}
 )

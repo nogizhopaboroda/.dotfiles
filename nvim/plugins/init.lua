@@ -39,6 +39,8 @@ require('packer').startup(function()
   -- end}
   use {'neovim/nvim-lspconfig', config = function()
   end}
+  use {'jose-elias-alvarez/null-ls.nvim', config = function()
+  end}
   use {'williamboman/nvim-lsp-installer', config = function()
     require("nvim-lsp-installer").setup {}
     require('plugins.lsp')
@@ -86,9 +88,9 @@ require('packer').startup(function()
     vim.cmd([[inoremap <silent><expr> <CR> pumvisible() ? compe#confirm("<CR>") : "\<CR>"]])
   end }
 
-  -- use {'windwp/nvim-autopairs', config = function()
-    -- require('nvim-autopairs').setup()
-  -- end}
+  use {'windwp/nvim-autopairs', config = function()
+    require('nvim-autopairs').setup()
+  end}
 
   -- use 'kyazdani42/nvim-web-devicons'
   -- files tree
