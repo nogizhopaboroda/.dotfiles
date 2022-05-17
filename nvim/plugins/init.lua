@@ -210,6 +210,14 @@ require('packer').startup(function()
     end
   }
 
+  -- css colors highlight plugin
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end
+  }
+
   -- -- go to github
   -- use 'ruanyl/vim-gh-line'
 
