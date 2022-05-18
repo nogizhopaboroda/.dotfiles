@@ -188,9 +188,8 @@ require('packer').startup(function()
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           -- lualine_c = {'filename'},
           lualine_c = {
-            'filename',
-            -- file_status = true,
-            -- path = 1,
+            { '%{GetPath("%:p:h", "true", "false")}/%', color = { fg = '#675f54' } },
+            { '%t', color = { fg = '#f2eedf' } },
           },
           lualine_x = { 'filetype' },
           lualine_y = { 'progress' },
