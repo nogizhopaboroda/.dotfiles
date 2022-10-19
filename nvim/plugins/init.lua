@@ -132,11 +132,16 @@ require('packer').startup(function()
         },
       }
 
-      vim.cmd("highlight DiffAdd ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#05aff7')") .. " guifg=#05aff7 cterm=NONE gui=NONE")
-      vim.cmd("highlight DiffDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
-      vim.cmd("highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
-      vim.cmd("highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#fcba03')") .. " guifg=#fcba03 cterm=NONE gui=NONE")
-      vim.cmd("highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=" .. vim.api.nvim_eval("RGB('#ff9800')") .. " guifg=#ff9800 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffAdd ctermbg=NONE guibg=NONE ctermfg=" ..
+        vim.api.nvim_eval("RGB('#05aff7')") .. " guifg=#05aff7 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffDelete ctermbg=NONE guibg=NONE ctermfg=" ..
+        vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffTopDelete ctermbg=NONE guibg=NONE ctermfg=" ..
+        vim.api.nvim_eval("RGB('#cb4b16')") .. " guifg=#cb4b16 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffChange ctermbg=NONE guibg=NONE ctermfg=" ..
+        vim.api.nvim_eval("RGB('#fcba03')") .. " guifg=#fcba03 cterm=NONE gui=NONE")
+      vim.cmd("highlight DiffChangeDelete ctermbg=NONE guibg=NONE ctermfg=" ..
+        vim.api.nvim_eval("RGB('#ff9800')") .. " guifg=#ff9800 cterm=NONE gui=NONE")
     end
   }
 
@@ -144,8 +149,10 @@ require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
     config = function()
-      vim.api.nvim_set_keymap('n', '<C-p>', ':lua require"telescope.builtin".find_files{}<cr>', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '<space>/', ':lua require"telescope.builtin".live_grep{}<cr>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<C-p>', ':lua require"telescope.builtin".find_files{}<cr>',
+        { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<space>/', ':lua require"telescope.builtin".live_grep{}<cr>',
+        { noremap = true, silent = true })
       -- Global remapping
       ------------------------------
       require('telescope').setup {
@@ -173,6 +180,11 @@ require('packer').startup(function()
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
+
+      local function getCurrentPath()
+        return vim.api.nvim_exec([[echo GetPath("%:p:h", "true", "false") . '/']], true)
+      end
+
       require('lualine').setup {
         options = {
           icons_enabled = true,
@@ -188,7 +200,7 @@ require('packer').startup(function()
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           -- lualine_c = {'filename'},
           lualine_c = {
-            { '%{GetPath("%:p:h", "true", "false")}/%', color = { fg = '#675f54' } },
+            { getCurrentPath, color = { fg = '#675f54' } },
             { '%t', color = { fg = '#f2eedf' } },
           },
           lualine_x = { 'filetype' },
