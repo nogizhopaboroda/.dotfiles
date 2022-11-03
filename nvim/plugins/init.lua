@@ -16,14 +16,19 @@ require('packer').startup(function()
 
   -- color scheme
   use { "npxbr/gruvbox.nvim", requires = { "rktjmp/lush.nvim" }, config = function()
-    vim.cmd('colorscheme gruvbox')
+    -- vim.cmd('colorscheme gruvbox')
+    -- vim.cmd('set background=dark')
   end }
 
-  -- use {'ishan9299/nvim-solarized-lua', config = function()
-  -- vim.g.solarized_termtrans = 1
-  -- vim.g.solarized_italics = 1
-  -- vim.cmd('colorscheme solarized')
-  -- end}
+  -- use { 'ishan9299/nvim-solarized-lua', config = function()
+  --   vim.g.solarized_termtrans = 1
+  --   vim.g.solarized_italics = 1
+  --   vim.cmd('colorscheme solarized')
+  -- end }
+  use { 'sainnhe/gruvbox-material', config = function()
+    vim.cmd('colorscheme gruvbox-material')
+    vim.cmd('set background=dark')
+  end }
 
   use { 'p00f/nvim-ts-rainbow', config = function()
   end }
