@@ -7,7 +7,7 @@ zplug "themes/robbyrussell", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/terraform", from:oh-my-zsh
 
-zplug "lukechilds/zsh-nvm"
+zplug "lukechilds/zsh-nvm", hook-load:"source ~/.nvm/nvm.sh"
 zplug "greymd/docker-zsh-completion"
 
 zplug "k4rthik/git-cal", as:command
