@@ -63,8 +63,8 @@ tsserver:on_ready(function()
   nvim_lsp.tsserver.setup {
     init_options = require("nvim-lsp-ts-utils").init_options,
     on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
+      -- client.resolved_capabilities.document_formatting = false
+      -- client.resolved_capabilities.document_range_formatting = false
       on_attach(client, bufnr)
 
       local ts_utils = require("nvim-lsp-ts-utils")

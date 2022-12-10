@@ -54,8 +54,14 @@ require('packer').startup(function()
   -- end}
   use { 'neovim/nvim-lspconfig', config = function()
   end }
-  use { 'jose-elias-alvarez/null-ls.nvim', config = function()
-  end }
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+    end
+  }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils', config = function()
   end }
   use { 'williamboman/nvim-lsp-installer', config = function()
