@@ -67,8 +67,8 @@ alias pwdc="pwd | tr -d '\n' | pbcopy"
 alias pick-commit="git log --pretty=format:'%H %s' | fzf | grep -o '^\S*' | tr -d '\n'"
 alias pick-branch="git branch | fzf"
 
-alias jsn="python -mjson.tool"
-alias jsnp="python -c \"import sys; jsonp=sys.stdin.read(); print(jsonp[ jsonp.index('(') + 1 : jsonp.rindex(')') ])\" | jsn"
+alias jsn="python3 -mjson.tool"
+alias jsnp="python3 -c \"import sys; jsonp=sys.stdin.read(); print(jsonp[ jsonp.index('(') + 1 : jsonp.rindex(')') ])\" | jsn"
 
 alias serve="python -m SimpleHTTPServer"
 
